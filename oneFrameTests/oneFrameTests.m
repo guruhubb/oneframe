@@ -1,6 +1,6 @@
 //
-//  oneFrameTests.m
-//  oneFrameTests
+//  oneframeTests.m
+//  oneframeTests
 //
 //  Created by Saswata Basu on 3/19/14.
 //  Copyright (c) 2014 Saswata Basu. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface oneFrameTests : XCTestCase
+@interface oneframeTests : XCTestCase
 
 @end
 
-@implementation oneFrameTests
+@implementation oneframeTests
 
 - (void)setUp
 {

@@ -5,7 +5,7 @@
 //
 
 #import <Availability.h>
-
+//#import "/Users/saswata_basu/Downloads/GPUImage-master-5/framework/Source/GPUImage.h"
 #ifndef __IPHONE_5_0
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
@@ -13,4 +13,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+#endif
+
+
+#ifndef DEBUG
+#define NSLog(...);
 #endif
