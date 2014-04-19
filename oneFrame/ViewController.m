@@ -17,6 +17,7 @@
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     NSInteger selectedPhotoIndex;
     NSUserDefaults *defaults;
+//    BOOL firstTime;
 }
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property(nonatomic, strong) NSArray *assets;
@@ -32,6 +33,11 @@
     if (!IS_TALL_SCREEN) {
         self.collectionView.frame = CGRectMake(0, 95+64, 320, 480-(95+64));  // for 3.5 screen; remove autolayout
     }
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        [self performSelector:@selector(scrollToBottom) withObject:nil afterDelay:0.1];
+
+    });
 
 
 }
@@ -81,7 +87,8 @@
     NSLog(@"showSurvey is %d and rateDone is %d",[defaults boolForKey:@"showSurvey"],[defaults boolForKey:@"rateDone"]);
     if ([defaults boolForKey:@"showSurvey"]&&![defaults boolForKey:@"rateDone"])
         [self performSelector:@selector(showSurvey) withObject:nil afterDelay:0.1];
-    [self performSelector:@selector(scrollToBottom) withObject:nil afterDelay:0.1];
+//    if (!firstTime)
+//        [self performSelector:@selector(scrollToBottom) withObject:nil afterDelay:0.1];
     
 }
 -(void)scrollToBottom
@@ -127,6 +134,7 @@
     UICollectionViewCell *cell = (UICollectionViewCell *)sender;
     selectedPhotoIndex = cell.tag;
     NSLog(@"index is %ld",(long)selectedPhotoIndex);
+//    firstTime=YES;
 
     ALAsset *asset = self.assets[selectedPhotoIndex];
     ALAssetRepresentation *defaultRep = [asset defaultRepresentation];

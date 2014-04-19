@@ -123,7 +123,8 @@
     label.textColor = [UIColor whiteColor];
     label.text = @"CREATE";
     self.navigationItem.titleView = label;
-    
+    NSDictionary *attrs = @{ NSFontAttributeName : [UIFont systemFontOfSize:18] };
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
     defaults = [NSUserDefaults standardUserDefaults];
     if (!IS_TALL_SCREEN) {
         self.designViewContainer.frame = CGRectMake(0, 320, 320, 480-64-320);  // for 3.5 screen; remove autolayout
