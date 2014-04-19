@@ -146,33 +146,35 @@
     nMargin = [defaults integerForKey:@"Split"];
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
-        nMargin = 3;
-        [defaults setInteger:3 forKey:@"Split"];
+        nMargin = 0;
+        [defaults setInteger:0 forKey:@"Split"];
         sliderSplit.value = nMargin;
     });
 
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.tag=[defaults integerForKey:@"frame"];
     NSLog(@"VDL btn.tag is %d",btn.tag);
+//    btn.tag=1; 
 
-    if (btn.tag==0 || btn.tag > 25+35) btn.tag = 20;
+    if (btn.tag==0 || btn.tag > 25+35) btn.tag = 1;
+    [self frameClicked:btn];
     [self frameClicked:btn];
 //    if (![defaults boolForKey:kFeature0])
 //        btn.tag = 20;
 
-    if (btn.tag >25  && [defaults boolForKey:kFeature0]) {
-        NSLog(@" btn.tag is %d; nstyle = %d, nsubstyle = %d",btn.tag, nStyle,nSubStyle);
-
-        [self secondFrameClicked:btn];
-    }
-    else {
-        [self frameClicked:btn];
-    }
-    [self centerImage];
+//    if (btn.tag >25  && [defaults boolForKey:kFeature0]) {
+//        NSLog(@" btn.tag is %d; nstyle = %d, nsubstyle = %d",btn.tag, nStyle,nSubStyle);
+//
+//        [self secondFrameClicked:btn];
+//    }
+//    else {
+//        [self frameClicked:btn];
+//    }
+//    [self centerImage];
     firstTimeDesign = YES;
 
-//    [defaults setBool:YES forKey:kFeature0];  //test
-//    [defaults setBool:YES forKey:kFeature1];  //test
+    [defaults setBool:YES forKey:kFeature0];  //test
+    [defaults setBool:YES forKey:kFeature1];  //test
 
 //    int number = [defaults integerForKey:@"number"];
 //    NSLog(@"number is %d",number);
@@ -182,10 +184,10 @@
 //    [defaults setInteger:number forKey:@"number"];
  
 //    btn.tag = number;
-    btn.tag=9;//black and white
-    tapBlockNumber=0;
-    if (![defaults boolForKey:@"filter"])
-        [self effectsClicked:btn];
+//    btn.tag=9;//black and white
+//    tapBlockNumber=0;
+//    if (![defaults boolForKey:@"filter"])
+//        [self effectsClicked:btn];
 }
 
 - (void) randomFilterPick {
@@ -220,21 +222,11 @@
 }
 - (void)viewDidAppear:(BOOL)animated   {
     [super viewDidAppear:NO];
-    if (firstTimeDesign)
-    {
-//        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        btn.tag=[defaults integerForKey:@"frame"];
-//        NSLog(@"VWA btn.tag is %d; nstyle = %d, nsubstyle = %d",btn.tag, nStyle,nSubStyle);
-//        [self resizeFrames];
-//        if (btn.tag <= 25)
-//            [self frameClicked:btn];
-//        else
-//            [self secondFrameClicked:btn];
+//    if (firstTimeDesign)
+//    {
+//        if (![defaults boolForKey:@"filter"])
+//            [self randomFilterPick];
 //    }
-//    else {
-        if (![defaults boolForKey:@"filter"])
-            [self randomFilterPick];
-    }
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
@@ -245,15 +237,7 @@
         btn.tag=[defaults integerForKey:@"frame"];
         NSLog(@"VWA btn.tag is %d; nstyle = %d, nsubstyle = %d",btn.tag, nStyle,nSubStyle);
         [self resizeFrames];
-        //        if (btn.tag <= 25)
-        //            [self frameClicked:btn];
-        //        else
-        //            [self secondFrameClicked:btn];
     }
-//    else {
-//        if (![defaults boolForKey:@"filter"])
-//            [self randomFilterPick];
-//    }
 
 }
 
@@ -374,6 +358,7 @@
 }
 
 - (UIImage *) captureImage {
+    
     UIView* captureView = self.frameContainer;
     
     /* Capture the screen shoot at native resolution */
@@ -416,16 +401,16 @@
     return customScreenShot;
 }
 - (void) fillFrameSelectionSlider {
-    if (!IS_TALL_SCREEN)
-        self.frameSelectionBar.contentSize = CGSizeMake(55 * 22+10, self.frameSelectionBar.frame.size.height);
-    else
-        self.frameSelectionBar.contentSize = CGSizeMake(70 * 22+10, 151);
-    for (int ind = 6; ind <= 25; ind++) {
+//    if (!IS_TALL_SCREEN)
+//        self.frameSelectionBar.contentSize = CGSizeMake(52 * 6, self.frameSelectionBar.frame.size.height);
+//    else
+//        self.frameSelectionBar.contentSize = CGSizeMake(70 * 6, 151);
+    for (int ind = 1; ind <= 6; ind++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        if (!IS_TALL_SCREEN)
-            btn.frame = CGRectMake((ind - 6 ) * 55+5, 5, 50, 50);
-        else
-            btn.frame = CGRectMake((ind - 6 ) * 70+5, 5, 65, 65);
+//        if (!IS_TALL_SCREEN)
+//            btn.frame = CGRectMake((ind - 1) * 52+6, 7, 46, 46);
+//        else
+            btn.frame = CGRectMake((ind - 1 ) * 52+6, 7, 46, 46);
 
         btn.tag = ind;
         btn.layer.borderWidth=kBorderWidth;
@@ -439,45 +424,45 @@
 
         [self.frameSelectionBar addSubview:btn];
     }
-    for (int ind = 25; ind <= 26; ind++) {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        if (!IS_TALL_SCREEN)
-            btn.frame = CGRectMake((ind - 25 ) * 55+5+ 20*55, 5, 50, 50);
-        else
-            btn.frame = CGRectMake((ind - 25 ) * 70+5+ 20*70, 5, 65, 65);
-        btn.tag = ind+25;
-        btn.layer.borderWidth=kBorderWidth;
-        btn.layer.borderColor=[[UIColor clearColor] CGColor];
-        [btn addTarget:self action:@selector(secondFrameClicked:) forControlEvents:UIControlEventTouchUpInside];
-        NSLog(@"secondFrame%02d.png",ind);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"secondFrame%02d.png",ind]] forState:UIControlStateNormal];
-        [btn.imageView setContentMode:UIViewContentModeScaleToFill];
-        btn.alpha = 0.4;
-        [self.frameSelectionBar addSubview:btn];
-        
-        if (![defaults boolForKey:kFeature0]){
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
-            imageView.alpha = 0.8;
-            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-            imageView.layer.shadowOffset = CGSizeMake(0, 1);
-            imageView.layer.shadowOpacity = 1;
-            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
-            [btn addSubview:imageView];
-        }
-    }
+//    for (int ind = 25; ind <= 26; ind++) {
+//        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        if (!IS_TALL_SCREEN)
+//            btn.frame = CGRectMake((ind - 25 ) * 55+5+ 20*55, 5, 50, 50);
+//        else
+//            btn.frame = CGRectMake((ind - 25 ) * 70+5+ 20*70, 5, 65, 65);
+//        btn.tag = ind+25;
+//        btn.layer.borderWidth=kBorderWidth;
+//        btn.layer.borderColor=[[UIColor clearColor] CGColor];
+//        [btn addTarget:self action:@selector(secondFrameClicked:) forControlEvents:UIControlEventTouchUpInside];
+//        NSLog(@"secondFrame%02d.png",ind);
+//        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"secondFrame%02d.png",ind]] forState:UIControlStateNormal];
+//        [btn.imageView setContentMode:UIViewContentModeScaleToFill];
+//        btn.alpha = 0.4;
+//        [self.frameSelectionBar addSubview:btn];
+//        
+//        if (![defaults boolForKey:kFeature0]){
+//            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
+//            imageView.alpha = 0.8;
+//            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
+//            imageView.layer.shadowOffset = CGSizeMake(0, 1);
+//            imageView.layer.shadowOpacity = 1;
+//            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
+//            [btn addSubview:imageView];
+//        }
+//    }
 }
 
 - (void) fillSecondFrameSelectionSlider {
-    for (int ind = 27; ind <= 32; ind++) {
+    for (int ind = 1; ind <= 6; ind++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        if (!IS_TALL_SCREEN)
-            btn.frame = CGRectMake((ind - 27 ) * 55+5, 60, 50, 50);
-        else
-            btn.frame = CGRectMake((ind - 27 ) * 70+5, 75, 65, 65);
-        btn.tag = ind+25;
+//        if (!IS_TALL_SCREEN)
+//            btn.frame = CGRectMake((ind - 1 ) *52+6, 46+7+7, 46, 46);
+//        else
+            btn.frame = CGRectMake((ind - 1 ) *52+6, 46+7+7, 46, 46);
+        btn.tag = ind+6;
         btn.layer.borderWidth=kBorderWidth;
         btn.layer.borderColor=[[UIColor clearColor] CGColor];
-        [btn addTarget:self action:@selector(secondFrameClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(frameClicked:) forControlEvents:UIControlEventTouchUpInside];
         NSLog(@"secondFrame%02d.png",ind);
         [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"secondFrame%02d.png",ind]] forState:UIControlStateNormal];
         [btn.imageView setContentMode:UIViewContentModeScaleToFill];
@@ -495,41 +480,41 @@
         }
     }
 
-    for (int ind = 9; ind <= 24; ind++) {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        if (!IS_TALL_SCREEN)
-            btn.frame = CGRectMake((ind - 9 ) * 55+5+6*55, 60, 50, 50);
-        else
-            btn.frame = CGRectMake((ind - 9 ) * 70+5+6*70, 75, 65, 65);
-        btn.tag = ind+25;
-        btn.layer.borderWidth=kBorderWidth;
-        btn.layer.borderColor=[[UIColor clearColor] CGColor];
-        [btn addTarget:self action:@selector(secondFrameClicked:) forControlEvents:UIControlEventTouchUpInside];
-        NSLog(@"secondFrame%02d.png",ind);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"secondFrame%02d.png",ind]] forState:UIControlStateNormal];
-        [btn.imageView setContentMode:UIViewContentModeScaleToFill];
-        btn.alpha = 0.4;
-        [self.frameSelectionBar addSubview:btn];
-        
-        if (![defaults boolForKey:kFeature0]){
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
-            imageView.alpha = 0.8;
-            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-            imageView.layer.shadowOffset = CGSizeMake(0, 1);
-            imageView.layer.shadowOpacity = 1;
-            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
-            [btn addSubview:imageView];
-        }
-    }
+//    for (int ind = 9; ind <= 24; ind++) {
+//        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        if (!IS_TALL_SCREEN)
+//            btn.frame = CGRectMake((ind - 9 ) * 55+5+6*55, 60, 50, 50);
+//        else
+//            btn.frame = CGRectMake((ind - 9 ) * 70+5+6*70, 75, 65, 65);
+//        btn.tag = ind+25;
+//        btn.layer.borderWidth=kBorderWidth;
+//        btn.layer.borderColor=[[UIColor clearColor] CGColor];
+//        [btn addTarget:self action:@selector(secondFrameClicked:) forControlEvents:UIControlEventTouchUpInside];
+//        NSLog(@"secondFrame%02d.png",ind);
+//        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"secondFrame%02d.png",ind]] forState:UIControlStateNormal];
+//        [btn.imageView setContentMode:UIViewContentModeScaleToFill];
+//        btn.alpha = 0.4;
+//        [self.frameSelectionBar addSubview:btn];
+//        
+//        if (![defaults boolForKey:kFeature0]){
+//            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
+//            imageView.alpha = 0.8;
+//            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
+//            imageView.layer.shadowOffset = CGSizeMake(0, 1);
+//            imageView.layer.shadowOpacity = 1;
+//            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
+//            [btn addSubview:imageView];
+//        }
+//    }
 }
 
 - (void)frameClicked:(UIButton *)clickedBtn
 {
-    [self closeBtnClicked];
-    resizeOn=NO;
+//    [self closeBtnClicked];
+//    resizeOn=NO;
     [defaults setInteger:clickedBtn.tag forKey:@"frame"];
     
-    for (int i = 1; i <= 35+25; i++) {
+    for (int i = 1; i <= 12; i++) {
         UIButton *frameButton = (UIButton *)[_frameSelectionBar viewWithTag:i];
         frameButton.layer.borderColor=[[UIColor clearColor] CGColor];
     }
@@ -559,102 +544,101 @@
             break;
         case 6:
             [self resetAdjustedValues];
-//            [self selectFrame:1 SUB:6];
-              [self selectFrame:2 SUB:10];
+            [self selectFrame:1 SUB:6];
             break;
         case 7:
             [self resetAdjustedValues];
-            [self selectFrame:2 SUB:1];
+            [self selectFrame:1 SUB:7];
           
             break;
         case 8:
             [self resetAdjustedValues];
-            [self selectFrame:2 SUB:2];
+            [self selectFrame:1 SUB:8];
             break;
         case 9:
             [self resetAdjustedValues];
-            [self selectFrame:2 SUB:3];
+            [self selectFrame:1 SUB:9];
             break;
         case 10:
             [self resetAdjustedValues];
-            [self selectFrame:2 SUB:4];
+            [self selectFrame:1 SUB:10];
             break;
         case 11:
             [self resetAdjustedValues];
-            [self selectFrame:2 SUB:5];
+            [self selectFrame:1 SUB:11];
             break;
             
         case 12:
             [self resetAdjustedValues];
-            [self selectFrame:2 SUB:6];
+            [self selectFrame:1 SUB:12];
             break;
             
-        case 13:
-            [self resetAdjustedValues];
-            [self selectFrame:3 SUB:1];
-            break;
-        case 14:
-            [self resetAdjustedValues];
-            [self selectFrame:3 SUB:2];
-            break;
-        case  15:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:3 SUB:3];
-            break;
-        case 16:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:3 SUB:4];
-            break;
-        case 17:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:3 SUB:5];
-            break;
-        case 18:
-            
-            [self selectFrame:3 SUB:6];
-            break;
-        case 19:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:4 SUB:1];
-            break;
-        case 20:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:4 SUB:2];
-            break;
-        case 21:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:4 SUB:3];
-            break;
-        case 22:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:4 SUB:4];
-            break;
-        case 23:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:4 SUB:5];
-            break;
-        case 24:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:4 SUB:6];
-            break;
-        case 25:
-            
-            [self resetAdjustedValues];
-            [self selectFrame:4 SUB:7];
-            break;
+//        case 13:
+//            [self resetAdjustedValues];
+//            [self selectFrame:1 SUB:12];
+//            break;
+//        case 14:
+//            [self resetAdjustedValues];
+//            [self selectFrame:3 SUB:2];
+//            break;
+//        case  15:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:3 SUB:3];
+//            break;
+//        case 16:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:3 SUB:4];
+//            break;
+//        case 17:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:3 SUB:5];
+//            break;
+//        case 18:
+//            
+//            [self selectFrame:3 SUB:6];
+//            break;
+//        case 19:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:4 SUB:1];
+//            break;
+//        case 20:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:4 SUB:2];
+//            break;
+//        case 21:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:4 SUB:3];
+//            break;
+//        case 22:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:4 SUB:4];
+//            break;
+//        case 23:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:4 SUB:5];
+//            break;
+//        case 24:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:4 SUB:6];
+//            break;
+//        case 25:
+//            
+//            [self resetAdjustedValues];
+//            [self selectFrame:4 SUB:7];
+//            break;
             
         default:
             [self resetAdjustedValues];
-            [self selectFrame:4 SUB:1];
+            [self selectFrame:1 SUB:1];
 
             break;
     }
@@ -669,83 +653,79 @@
         [self frameAction];
         return;
     }
-        for (int i = 1; i <= 35+25; i++) {
+        for (int i = 1; i <= 24; i++) {
             UIButton *frameButton = (UIButton *)[_frameSelectionBar viewWithTag:i];
             frameButton.layer.borderColor=[[UIColor clearColor] CGColor];
         }
         clickedBtn.layer.borderColor=[[UIColor redColor] CGColor];
 
-        switch (clickedBtn.tag-25) {
+        switch (clickedBtn.tag-12) {
             case 1:
                 [self resetAdjustedValues];
-                [self selectFrame:1 SUB:7];
+                [self selectFrame:1 SUB:13];
                 break;
             case 2: 
                 [self resetAdjustedValues];
-                [self selectFrame:1 SUB:9];
+                [self selectFrame:1 SUB:14];
                 break;
             case 3:
                 [self resetAdjustedValues];
-                [self selectFrame:1 SUB:10];
+                [self selectFrame:1 SUB:15];
                 break;
             case 4:
                 
                 [self resetAdjustedValues];
-                [self selectFrame:1 SUB:11];
+                [self selectFrame:1 SUB:16];
                 break;
                 
             case 5:
                 
                 [self resetAdjustedValues];
-                [self selectFrame:1 SUB:12];
+                [self selectFrame:1 SUB:17];
                 break;
             case 6:
                 
                 [self resetAdjustedValues];
-                [self selectFrame:1 SUB:13];
+                [self selectFrame:1 SUB:18];
                 break;
             case 7:
                 
                 [self resetAdjustedValues];
-                [self selectFrame:1 SUB:14];
+                [self selectFrame:1 SUB:19];
                 break;
-            case 12:
+            case 8:
                 
                 [self resetAdjustedValues];
-                [self selectFrame:2 SUB:7];
+                [self selectFrame:1 SUB:20];
                 break;
                 
             case 9:
                 
                 [self resetAdjustedValues];
-                [self selectFrame:2 SUB:8];
+                [self selectFrame:1 SUB:21];
                 break;
-//
-//            case 10:
-//                
-//                [self selectFrame:2 SUB:9];
-//                break;
-                
-            case 8:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:2 SUB:18];
-                
-                break;
-//            case 9:
-//                
-//                [self selectFrame:2 SUB:11];
-//                break;
+
             case 10:
-                
                 [self resetAdjustedValues];
-                [self selectFrame:2 SUB:12];
+                [self selectFrame:1 SUB:22];
                 break;
+                
             case 11:
                 
                 [self resetAdjustedValues];
-                [self selectFrame:2 SUB:13];
+                [self selectFrame:1 SUB:23];
                 break;
+
+            case 12:
+                
+                [self resetAdjustedValues];
+                [self selectFrame:1 SUB:24];
+                break;
+//            case 11:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:2 SUB:13];
+//                break;
 //            case 15:
 //                
 //                [self selectFrame:2 SUB:14];
@@ -760,45 +740,45 @@
 //                
 //                [self selectFrame:2 SUB:16];
 //                break;
-            case 13:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:3 SUB:7];
-                break;
-            case 14:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:3 SUB:8];
-                break;
-            case 15:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:3 SUB:9];
-                break;
-            case 16:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:3 SUB:10];
-                break;
-            case 17:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:3 SUB:11];
-                break;
-            case 18:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:3 SUB:12];
-                break;
+//            case 13:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:3 SUB:7];
+//                break;
+//            case 14:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:3 SUB:8];
+//                break;
+//            case 15:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:3 SUB:9];
+//                break;
+//            case 16:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:3 SUB:10];
+//                break;
+//            case 17:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:3 SUB:11];
+//                break;
+//            case 18:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:3 SUB:12];
+//                break;
 //            case 18:
 //                
 //                [self selectFrame:3 SUB:13];
 //                break;
                 
-            case 19:
-                [self resetAdjustedValues];
-                [self selectFrame:3 SUB:14];
-                break;
+//            case 19:
+//                [self resetAdjustedValues];
+//                [self selectFrame:3 SUB:14];
+//                break;
 //            case 26:
 //                
 //                [self selectFrame:3 SUB:15];
@@ -815,78 +795,80 @@
                 //
                 //            [self selectFrame:4 SUB:9];
                 //            break;
-            case 20:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:4 SUB:10];
-                break;
-            case 21:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:4 SUB:11];
-                break;
-            case 22:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:4 SUB:12];
-                break;
-            case 23:
-                
-                [self resetAdjustedValues];
-                [self selectFrame:4 SUB:13];
-                break;
-                
-            case 24:
-                [self resetAdjustedValues];
-                [self selectFrame:4 SUB:14];
-                break;
+//            case 20:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:4 SUB:10];
+//                break;
+//            case 21:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:4 SUB:11];
+//                break;
+//            case 22:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:4 SUB:12];
+//                break;
+//            case 23:
+//                
+//                [self resetAdjustedValues];
+//                [self selectFrame:4 SUB:13];
+//                break;
+//                
+//            case 24:
+//                [self resetAdjustedValues];
+//                [self selectFrame:4 SUB:14];
+//                break;
                 //        case 33:
                 //
                 //            [self selectFrame:4 SUB:15];
                 //            break;
-            case 25:
-                [self resetAdjustedValues];
-                [self selectFrame:4 SUB:16];
-                
-                break;
-            case 26:
-                [self resetAdjustedValues];
-                [self selectFrame:4 SUB:18];
-                
-                break;
-            case 27:
-                [self resetAdjustedValues];
-                [self selectFrame:2 SUB:17];
-                
-                break;
-            case 28:
-                [self resetAdjustedValues];
-                [self selectFrame:2 SUB:18];
-                
-                break;
-            case 29:
-                [self resetAdjustedValues];
-                [self selectFrame:2 SUB:19];
-                
-                break;
-            case 30:
-                [self resetAdjustedValues];
-                [self selectFrame:2 SUB:20];
-                
-                break;
-            case 31:
-                [self resetAdjustedValues];
-                [self selectFrame:2 SUB:21];
-                
-                break;
-            case 32:
-                [self resetAdjustedValues];
-                [self selectFrame:2 SUB:22];
-                
-                break;
+//            case 25:
+//                [self resetAdjustedValues];
+//                [self selectFrame:4 SUB:16];
+//                
+//                break;
+//            case 26:
+//                [self resetAdjustedValues];
+//                [self selectFrame:4 SUB:18];
+//                
+//                break;
+//            case 27:
+//                [self resetAdjustedValues];
+//                [self selectFrame:2 SUB:17];
+//                
+//                break;
+//            case 28:
+//                [self resetAdjustedValues];
+//                [self selectFrame:2 SUB:18];
+//                
+//                break;
+//            case 29:
+//                [self resetAdjustedValues];
+//                [self selectFrame:2 SUB:19];
+//                
+//                break;
+//            case 30:
+//                [self resetAdjustedValues];
+//                [self selectFrame:2 SUB:20];
+//                
+//                break;
+//            case 31:
+//                [self resetAdjustedValues];
+//                [self selectFrame:2 SUB:21];
+//                
+//                break;
+//            case 32:
+//                [self resetAdjustedValues];
+//                [self selectFrame:2 SUB:22];
+//                
+//                break;
 
                 
             default:
+                [self resetAdjustedValues];
+                [self selectFrame:1 SUB:13];
                 break;
         }
 //    }
@@ -903,22 +885,24 @@
 }
 
 - (void) fillEffectsSlider {
-    labelEffectsArray = [[NSMutableArray alloc]initWithObjects: @"original", @"delight", @"sunny",@"night", @"beach",@"b&w-red",@"sepia",@"water", @"b&w",@"morning", @"sky",nil];
-    labelSecondEffectsArray = [[NSMutableArray alloc]initWithObjects: @"2layer",@"warm",@"winter",@"gold",@"platinum",@"copper",@"film",@"white", @"crisp",@"candle",@"fall",@"vignette",@"foggy",@"cobalt",@"blue",@"bright",@"bleak",@"moon",@"cyan",@"soft",nil];
+    labelEffectsArray = [[NSMutableArray alloc]initWithObjects: @"original", @"delight", @"sunny",@"night", @"beach",@"b&w-red",nil];
+    labelSecondEffectsArray = [[NSMutableArray alloc]initWithObjects: @"sepia",@"water", @"b&w",@"morning", @"sky",@"2layer",nil];
 
-    if (!IS_TALL_SCREEN)
-        self.filterSelectionBar.contentSize = CGSizeMake(55 * 11+10, self.frameSelectionBar.frame.size.height);
-    else
-        self.filterSelectionBar.contentSize = CGSizeMake(70 * 11+10, 151);
+//    if (!IS_TALL_SCREEN)
+//        self.filterSelectionBar.contentSize = CGSizeMake(55 * 11+10, self.frameSelectionBar.frame.size.height);
+//    else
+//        self.filterSelectionBar.contentSize = CGSizeMake(70 * 11+10, 151);
     
     
-    for (int ind = 1; ind <= 11; ind++) {
+    for (int ind = 1; ind <= 6; ind++) {
      
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        if (!IS_TALL_SCREEN)
-            btn.frame = CGRectMake((ind - 1 ) * 55+5, 5, 50, 50);
-        else
-            btn.frame = CGRectMake((ind - 1 ) * 70+5, 5, 65, 65);
+        btn.frame = CGRectMake((ind - 1 ) *52+6, 7, 46, 46);
+
+//        if (!IS_TALL_SCREEN)
+//            btn.frame = CGRectMake((ind - 1 ) * 55+5, 5, 50, 50);
+//        else
+//            btn.frame = CGRectMake((ind - 1 ) * 70+5, 5, 65, 65);
 
         btn.tag = ind;
         [btn setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 13.0, 0.0)];
@@ -928,18 +912,19 @@
         NSLog(@"effects btn.tag is %d ",btn.tag);
         [btn addTarget:self action:@selector(effectsClicked:) forControlEvents:UIControlEventTouchUpInside];
         CGRect labelEffects;
-        if (!IS_TALL_SCREEN)
-            labelEffects = CGRectMake((ind - 1 ) * 55+5+kBorderWidth, 42-kBorderWidth, 50-2*kBorderWidth, 13);
-        else
-            labelEffects = CGRectMake((ind - 1 ) * 70+5+kBorderWidth, 57-kBorderWidth, 65-2*kBorderWidth, 13);
+        labelEffects = CGRectMake((ind - 1 ) * 52+6+kBorderWidth, 43-kBorderWidth, 46-2*kBorderWidth, 13);
+//        if (!IS_TALL_SCREEN)
+//            labelEffects = CGRectMake((ind - 1 ) * 55+5+kBorderWidth, 42-kBorderWidth, 50-2*kBorderWidth, 13);
+//        else
+//            labelEffects = CGRectMake((ind - 1 ) * 70+5+kBorderWidth, 57-kBorderWidth, 65-2*kBorderWidth, 13);
 
         UILabel *label = [[UILabel alloc] initWithFrame:labelEffects];
         label.backgroundColor = [UIColor lightGrayColor];
         label.alpha=0.8;
-            if (!IS_TALL_SCREEN)
+//            if (!IS_TALL_SCREEN)
                 label.font = [UIFont boldSystemFontOfSize:10.0];
-            else
-                label.font = [UIFont boldSystemFontOfSize:12.0];
+//            else
+//                label.font = [UIFont boldSystemFontOfSize:12.0];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor whiteColor];
         label.text = [labelEffectsArray objectAtIndex:ind-1];
@@ -957,38 +942,41 @@
 
 - (void) fillSecondEffectsSlider {
 
-    for (int ind = 1; ind <= 11; ind++) {
+    for (int ind = 1; ind <= 6; ind++) {
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        if (!IS_TALL_SCREEN)
-            btn.frame = CGRectMake((ind - 1 ) * 55+5, 60, 50, 50);
-        else
-            btn.frame = CGRectMake((ind - 1 ) * 70+5, 75, 65, 65);
-        btn.tag = ind+11;
+//        if (!IS_TALL_SCREEN)
+//            btn.frame = CGRectMake((ind - 1 ) * 55+5, 60, 50, 50);
+//        else
+//            btn.frame = CGRectMake((ind - 1 ) * 70+5, 75, 65, 65);
+        btn.frame = CGRectMake((ind - 1 ) *52+6, 46+7+7, 46, 46);
+
+        btn.tag = ind+6;
         btn.layer.borderWidth=kBorderWidth;
         btn.layer.borderColor=[[UIColor clearColor] CGColor];
         [btn setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 13.0, 0.0)];
         NSLog(@" second effects btn.tag is %d ",btn.tag);
-        [btn addTarget:self action:@selector(secondEffectsClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(effectsClicked:) forControlEvents:UIControlEventTouchUpInside];
         CGRect labelEffects;
-        if (!IS_TALL_SCREEN)
-            labelEffects = CGRectMake((ind - 1 ) * 55+5+kBorderWidth, 52+45-kBorderWidth, 50-2*kBorderWidth, 13);
-        else
-            labelEffects = CGRectMake((ind - 1 ) * 70+5+kBorderWidth, 75+65-13-kBorderWidth, 65-2*kBorderWidth, 13);
+        labelEffects = CGRectMake((ind - 1 ) * 52+6+kBorderWidth, 46+7+43-kBorderWidth, 46-2*kBorderWidth, 13);
+//        if (!IS_TALL_SCREEN)
+//            labelEffects = CGRectMake((ind - 1 ) * 55+5+kBorderWidth, 52+45-kBorderWidth, 50-2*kBorderWidth, 13);
+//        else
+//            labelEffects = CGRectMake((ind - 1 ) * 70+5+kBorderWidth, 75+65-13-kBorderWidth, 65-2*kBorderWidth, 13);
         UILabel *label = [[UILabel alloc] initWithFrame:labelEffects];
         label.backgroundColor = [UIColor lightGrayColor];
         label.alpha=0.8;
-            if (!IS_TALL_SCREEN)
+//            if (!IS_TALL_SCREEN)
                 label.font = [UIFont boldSystemFontOfSize:10.0];
-            else
-                label.font = [UIFont boldSystemFontOfSize:12.0];
+//            else
+//                label.font = [UIFont boldSystemFontOfSize:12.0];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor whiteColor];
         label.text = [labelSecondEffectsArray objectAtIndex:ind-1];
         label.layer.shadowOffset=CGSizeMake(1, 1);
         label.layer.shadowColor= [UIColor blackColor].CGColor;
         label.layer.shadowOpacity = 0.8;
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"filter%02d.png",ind+11]] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"filter%02d.png",ind+6]] forState:UIControlStateNormal];
         [btn.imageView setContentMode:UIViewContentModeScaleAspectFill];
 
         [self.filterSelectionBar addSubview:btn];
@@ -1030,7 +1018,7 @@
 //    [labelToApplyFilterToVideo removeFromSuperview];
     if (tapBlockNumber==100) tapBlockNumber=0;
 //    AppRecord *app = [[AppRecord alloc] init];
-    for (int i = 1; i <= 11+20; i++) {
+    for (int i = 1; i <= 12; i++) {
         UIButton *frameButton = (UIButton *)[_filterSelectionBar viewWithTag:i];
         frameButton.layer.borderColor=[[UIColor clearColor] CGColor];
     }
@@ -1138,6 +1126,13 @@
 //                            [filter removeAllTargets];
 //                            videoFilter = [[GPUImageGrayscaleFilter alloc] init];
                         } break;
+                        case 12:{
+                            GPUImageAmatorkaFilter*  filter = [[GPUImageAmatorkaFilter alloc] initWithString:@"2strip.png"];
+                            UIImage *quickFilteredImage = [filter imageByFilteringImage:inputImage];
+                            imageView.image=quickFilteredImage;
+                            //                            videoFilter = [[GPUImageAmatorkaFilter alloc] initWithString:@"2strip.png"];
+                            
+                        } break;
                         default:{
                             GPUImageFilter *filter = [[GPUImageFilter alloc] init]; //original
                             UIImage *quickFilteredImage = [filter imageByFilteringImage:inputImage];
@@ -1165,7 +1160,7 @@
         return;
     }
     NSLog(@"block number %d",tapBlockNumber);
-    for (int i = 1; i <= 20+11; i++) {
+    for (int i = 1; i <= 12; i++) {
         UIButton *frameButton = (UIButton *)[_filterSelectionBar viewWithTag:i];
         frameButton.layer.borderColor=[[UIColor clearColor] CGColor];
     }
@@ -1413,68 +1408,62 @@
     if (!firstTime){
         droppableAreas = [[NSMutableArray alloc] init];
         firstTime = YES;
-        nStyle= 4;
-        nSubStyle = 1;
+//        nStyle= 4;
+//        nSubStyle = 1;
         rectBlockSlider1 = [self getScrollFrame1:style subStyle:sub];
-        rectBlockSlider2 = [self getScrollFrame2:style subStyle:sub];
-        rectBlockSlider3 = [self getScrollFrame3:style subStyle:sub];
-        rectBlockSlider4 = [self getScrollFrame4:style subStyle:sub];
+//        rectBlockSlider2 = [self getScrollFrame2:style subStyle:sub];
+//        rectBlockSlider3 = [self getScrollFrame3:style subStyle:sub];
+//        rectBlockSlider4 = [self getScrollFrame4:style subStyle:sub];
         blockSlider1 = [[UIScrollView alloc] initWithFrame:rectBlockSlider1];
-        blockSlider2 = [[UIScrollView alloc] initWithFrame:rectBlockSlider2];
-        blockSlider3 = [[UIScrollView alloc] initWithFrame:rectBlockSlider3];
-        blockSlider4 = [[UIScrollView alloc] initWithFrame:rectBlockSlider4];
+//        blockSlider2 = [[UIScrollView alloc] initWithFrame:rectBlockSlider2];
+//        blockSlider3 = [[UIScrollView alloc] initWithFrame:rectBlockSlider3];
+//        blockSlider4 = [[UIScrollView alloc] initWithFrame:rectBlockSlider4];
         blockSlider1.scrollEnabled=NO;
-        blockSlider2.scrollEnabled=NO;
-        blockSlider3.scrollEnabled=NO;
-        blockSlider4.scrollEnabled=NO;
+//        blockSlider2.scrollEnabled=NO;
+//        blockSlider3.scrollEnabled=NO;
+//        blockSlider4.scrollEnabled=NO;
         blockSlider1.tag = 0;
-        blockSlider2.tag = 1;
-        blockSlider3.tag = 2;
-        blockSlider4.tag = 3;
+//        blockSlider2.tag = 1;
+//        blockSlider3.tag = 2;
+//        blockSlider4.tag = 3;
         [blockSlider1.layer setBorderColor:[[UIColor clearColor] CGColor]];
         [blockSlider1.layer setBorderWidth:kBlockWidth];
         
-        [blockSlider2.layer setBorderColor:[[UIColor clearColor] CGColor]];
-        [blockSlider2.layer setBorderWidth:kBlockWidth];
-        
-        [blockSlider3.layer setBorderColor:[[UIColor clearColor] CGColor]];
-        [blockSlider3.layer setBorderWidth:kBlockWidth];
-        
-        [blockSlider4.layer setBorderColor:[[UIColor clearColor] CGColor]];
-        [blockSlider4.layer setBorderWidth:kBlockWidth];
+//        [blockSlider2.layer setBorderColor:[[UIColor clearColor] CGColor]];
+//        [blockSlider2.layer setBorderWidth:kBlockWidth];
+//        
+//        [blockSlider3.layer setBorderColor:[[UIColor clearColor] CGColor]];
+//        [blockSlider3.layer setBorderWidth:kBlockWidth];
+//        
+//        [blockSlider4.layer setBorderColor:[[UIColor clearColor] CGColor]];
+//        [blockSlider4.layer setBorderWidth:kBlockWidth];
         
         image1 = [[UIImageView alloc] initWithImage:self.selectedImage];
-//        CALayer *mask = [CALayer layer];
-//        mask.contents = (id)[[UIImage imageNamed:@"mask.png"] CGImage];
-//        mask.frame = CGRectMake(0, 0, 31, 31);
-//        blockSlider1.layer.mask=mask;
-//        image1.layer.mask=mask;
-//        self.frameContainer.layer.mask = mask;
-//        image1.layer.masksToBounds = YES;
+
         image1.tag =0;
         [blockSlider1 addSubview:image1];
         [self fitImageToScroll:image1 SCROLL:blockSlider1 scrollViewNumber:blockSlider1.tag angle:0.0 ];
-        image2 = [[UIImageView alloc] initWithImage:self.selectedImage];
-        image2.tag =1;
-        [blockSlider2 addSubview:image2];
-        [self fitImageToScroll:image2 SCROLL:blockSlider2 scrollViewNumber:blockSlider2.tag angle:0.0 ];
-        image3 = [[UIImageView alloc] initWithImage:self.selectedImage];
-        image3.tag =2;
-        [blockSlider3 addSubview:image3];
-        [self fitImageToScroll:image3 SCROLL:blockSlider3 scrollViewNumber:blockSlider3.tag angle:0.0 ];
-        image4 = [[UIImageView alloc] initWithImage:self.selectedImage];
-        image4.tag =3;
-        [blockSlider4 addSubview:image4];
-        [self fitImageToScroll:image4 SCROLL:blockSlider4 scrollViewNumber:blockSlider4.tag angle:0.0 ];
+//        image2 = [[UIImageView alloc] initWithImage:self.selectedImage];
+//        image2.tag =1;
+//        [blockSlider2 addSubview:image2];
+//        [self fitImageToScroll:image2 SCROLL:blockSlider2 scrollViewNumber:blockSlider2.tag angle:0.0 ];
+//        image3 = [[UIImageView alloc] initWithImage:self.selectedImage];
+//        image3.tag =2;
+//        [blockSlider3 addSubview:image3];
+//        [self fitImageToScroll:image3 SCROLL:blockSlider3 scrollViewNumber:blockSlider3.tag angle:0.0 ];
+//        image4 = [[UIImageView alloc] initWithImage:self.selectedImage];
+//        image4.tag =3;
+//        [blockSlider4 addSubview:image4];
+//        [self fitImageToScroll:image4 SCROLL:blockSlider4 scrollViewNumber:blockSlider4.tag angle:0.0 ];
         
         [self.frameContainer addSubview:blockSlider1];
-        [self.frameContainer addSubview:blockSlider2];
-        [self.frameContainer addSubview:blockSlider3];
-        [self.frameContainer addSubview:blockSlider4];
+//        [self.frameContainer addSubview:blockSlider2];
+//        [self.frameContainer addSubview:blockSlider3];
+//        [self.frameContainer addSubview:blockSlider4];
         [droppableAreas addObject:blockSlider1];
-        [droppableAreas addObject:blockSlider2];
-        [droppableAreas addObject:blockSlider3];
-        [droppableAreas addObject:blockSlider4];
+//        [droppableAreas addObject:blockSlider2];
+//        [droppableAreas addObject:blockSlider3];
+//        [droppableAreas addObject:blockSlider4];
         
         UITapGestureRecognizer *tapBlock = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBlock:)];
         tapBlock.numberOfTapsRequired = 1;
@@ -1501,27 +1490,44 @@
 
 - (void) resizeFrames {
 
-    for (UIScrollView *blockSlider in droppableAreas){
-        blockSlider.layer.mask=nil;
+//    for (UIScrollView *blockSlider in droppableAreas){
+        blockSlider1.layer.mask=nil;
 
-        if (blockSlider.tag == 0) {
+//        if (blockSlider.tag == 0) {
             rectBlockSlider1 = [self getScrollFrame1:nStyle subStyle:nSubStyle];
-            blockSlider.frame = rectBlockSlider1;
-        }
-        else if (blockSlider.tag == 1) {
-            rectBlockSlider2 = [self getScrollFrame2:nStyle subStyle:nSubStyle];
-            blockSlider.frame = rectBlockSlider2;
-        }
-        else if (blockSlider.tag == 2) {
-            rectBlockSlider3 = [self getScrollFrame3:nStyle subStyle:nSubStyle];
-            blockSlider.frame = rectBlockSlider3;
-        }
-        else if (blockSlider.tag == 3) {
-            rectBlockSlider4 = [self getScrollFrame4:nStyle subStyle:nSubStyle];
-            blockSlider.frame = rectBlockSlider4;
-        }
-        [blockSlider setContentOffset:CGPointMake(blockSlider.frame.origin.x, blockSlider.frame.origin.y) animated:NO];
-    }
+            blockSlider1.frame = rectBlockSlider1;
+//        }
+//        else if (blockSlider.tag == 1) {
+//            rectBlockSlider2 = [self getScrollFrame2:nStyle subStyle:nSubStyle];
+//            blockSlider.frame = rectBlockSlider2;
+//        }
+//        else if (blockSlider.tag == 2) {
+//            rectBlockSlider3 = [self getScrollFrame3:nStyle subStyle:nSubStyle];
+//            blockSlider.frame = rectBlockSlider3;
+//        }
+//        else if (blockSlider.tag == 3) {
+//            rectBlockSlider4 = [self getScrollFrame4:nStyle subStyle:nSubStyle];
+//            blockSlider.frame = rectBlockSlider4;
+//        }
+//        for (UIImageView *imageView in blockSlider.subviews){
+//            [imageView removeFromSuperview];
+//        }
+        for (UIImageView *imageView in blockSlider1.subviews)
+             [imageView removeFromSuperview];
+        image1 = [[UIImageView alloc] initWithImage:self.selectedImage];
+        [blockSlider1 addSubview:image1];
+        
+            [self fitImageToScroll:image1 SCROLL:blockSlider1 scrollViewNumber:blockSlider1.tag angle:[defaults floatForKey:@"Rotate"]+sliderRotate.value];
+//    if (nSubStyle==1){
+//        CALayer *mask = [CALayer layer];
+//        mask.contents = (id)[[UIImage imageNamed:@"maskCircle.png"] CGImage];
+//        mask.frame = CGRectMake(155-50/2-nMargin*6, 155-50/2-nMargin*6, 50+nMargin*12, 50+nMargin*12 );
+//        blockSlider1.layer.mask=mask;
+//    }
+    
+
+//        [blockSlider setContentOffset:CGPointMake(blockSlider.frame.origin.x, blockSlider.frame.origin.y) animated:NO];
+//    }
 }
 
 - (IBAction)handlePinchImage:(UIPinchGestureRecognizer *)sender {
@@ -1637,35 +1643,70 @@
 }
 - (void) fitImageToScroll:(UIImageView*)imgView SCROLL:(UIScrollView*)scrView  scrollViewNumber: (NSInteger)tagNumber angle: (CGFloat) angle
 {
-    float imageWidthGreater = imgView.frame.size.width > imgView.frame.size.height ? imgView.frame.size.width: imgView.frame.size.height;
-    float imageWidthSmaller = imgView.frame.size.width > imgView.frame.size.height ? imgView.frame.size.height: imgView.frame.size.width;
-    float rateImageFill;
-    float rateImageFit;
-        rateImageFill = 310/imageWidthSmaller;
-        rateImageFit = 310/imageWidthGreater;
+    float rateScr;
+    float rateImg;
+    float rateWidth;
+    float rateHeight;
+//    if (scrView.frame.size.width > 0 && imgView.frame.size.width >0){
+        rateScr = scrView.frame.size.height / scrView.frame.size.width;
+        rateImg = imgView.frame.size.height / imgView.frame.size.width;
+//    }
+//    if (imgView.frame.size.width > 0 && imgView.frame.size.height > 0){
+        rateWidth = scrView.frame.size.width / imgView.frame.size.width;
+        rateHeight = scrView.frame.size.height / imgView.frame.size.height;
+//    }
+    NSLog(@"imgView is width=%f, height=%f, rateWidth is %f, rateHeight is %f",imgView.frame.size.width, imgView.frame.size.height,rateWidth,rateHeight);
+    CGFloat rateFit = rateScr < rateImg ? rateWidth : rateHeight;
+    rateFit = rateHeight > rateWidth? rateWidth : rateHeight;
+
+
+    NSLog (@"rateFit is %f",rateFit);
+    CGSize szImage = CGSizeMake(imgView.frame.size.width*rateFit, imgView.frame.size.height*rateFit);
+    [imgView setFrame:CGRectMake(0.0, 0.0, szImage.width, szImage.height)];
     
-    
-    float rate;
-    if ([defaults boolForKey:@"fill"])
-        rate = rateImageFit;
-    else
-        rate = rateImageFill;
-    
-    if(!isinf(rate)) {
-     [imgView setFrame:CGRectMake(0.0,0.0, imgView.frame.size.width*rate, imgView.frame.size.height*rate)];  //split
-        NSLog (@"imageView frame size is %f width %f height",imgView.frame.size.width,imgView.frame.size.height);
-        imageWidth=imgView.frame.size.width;
-        imageHeight=imgView.frame.size.height;
-    }
-    scale = rate;
-    
+    [scrView setContentSize:CGSizeMake(imgView.frame.size.width, imgView.frame.size.height)];
     CGPoint pt;
-    pt.x =   scrView.frame.origin.x ;//One Frame
-    pt.y =   scrView.frame.origin.y;//One Frame
-    
+    pt.x = (imgView.frame.size.width - scrView.frame.size.width)/2;
+    pt.y = (imgView.frame.size.height - scrView.frame.size.height)/2;
     NSLog(@"pt is x=%f and y=%f",pt.x, pt.y);
     [scrView setContentOffset:pt animated:NO];
-    
+
+//    float imageWidthGreater = imgView.frame.size.width > imgView.frame.size.height ? imgView.frame.size.width: imgView.frame.size.height;
+//    float imageWidthSmaller = imgView.frame.size.width > imgView.frame.size.height ? imgView.frame.size.height: imgView.frame.size.width;
+//    float scrollViewWidthGreater = scrView.frame.size.width > scrView.frame.size.height ? scrView.frame.size.width:scrView.frame.size.height;
+//    float scrollViewWidthSmaller = scrView.frame.size.width > scrView.frame.size.height ? scrView.frame.size.height:scrView.frame.size.width;
+//    
+//    float rateImageFill;
+//    float rateImageFit;
+////        rateImageFill = 310/imageWidthSmaller;
+////        rateImageFit = 310/imageWidthGreater;
+//    rateImageFill = scrollViewWidthSmaller/imageWidthSmaller;
+//    rateImageFit = scrollViewWidthGreater/imageWidthGreater;
+//
+//    
+//    float rate;
+//    if ([defaults boolForKey:@"fill"])
+//        rate = rateImageFit;
+//    else
+//        rate = rateImageFill;
+//    
+//    
+//    
+//    if(!isinf(rate)) {
+//     [imgView setFrame:CGRectMake(0.0,0.0, imgView.frame.size.width*rate, imgView.frame.size.height*rate)];  //split
+//        NSLog (@"imageView frame size is %f width %f height",imgView.frame.size.width,imgView.frame.size.height);
+//        imageWidth=imgView.frame.size.width;
+//        imageHeight=imgView.frame.size.height;
+//    }
+//    scale = rate;
+//    
+//    CGPoint pt;
+//    pt.x =   scrView.frame.origin.x ;//One Frame
+//    pt.y =   scrView.frame.origin.y;//One Frame
+//    
+//    NSLog(@"pt is x=%f and y=%f",pt.x, pt.y);
+//    [scrView setContentOffset:pt animated:NO];
+    NSLog(@"angle is %f",angle);
     float zoomFactor = [defaults floatForKey:@"Zoom"];
     imgView.transform = CGAffineTransformRotate(imgView.transform, angle);
     if ([defaults boolForKey:@"Flip"])
@@ -1673,6 +1714,74 @@
     else
         imgView.transform = CGAffineTransformScale(imgView.transform, zoomFactor, zoomFactor);
 }
+
+//- (void) fitImageToScroll:(MyImageView*)imgView SCROLL:(UIScrollView*)scrView  scrollViewNumber: (NSInteger)tagNumber angle: (CGFloat) angle
+//{
+//    float rateScr, rateImg, rateWidth, rateHeight;
+//    if (scrView.frame.size.width > 0 && imgView.frame.size.width >0){
+//        rateScr = scrView.frame.size.height / scrView.frame.size.width;
+//        rateImg = imgView.frame.size.height / imgView.frame.size.width;
+//    }
+//    if (imgView.frame.size.width > 0 && imgView.frame.size.height > 0){
+//        rateWidth = scrView.frame.size.width / imgView.frame.size.width;
+//        rateHeight = scrView.frame.size.height / imgView.frame.size.height;
+//    }
+//    NSLog(@"imgView is width=%f, height=%f, rateWidth is %f, rateHeight is %f",imgView.frame.size.width, imgView.frame.size.height,rateWidth,rateHeight);
+//    CGFloat rateFit = rateScr < rateImg ? rateWidth : rateHeight;
+//    NSLog (@"rateFit is %f",rateFit);
+//    CGSize szImage = CGSizeMake(imgView.frame.size.width*rateFit, imgView.frame.size.height*rateFit);
+//    [imgView setFrame:CGRectMake(0.0, 0.0, szImage.width, szImage.height)];
+//
+//    [scrView setContentSize:CGSizeMake(imgView.frame.size.width*1.2, imgView.frame.size.height*1.2)];
+//    CGPoint pt;
+//    pt.x = (imgView.frame.size.width - scrView.frame.size.width)/2;
+//    pt.y = (imgView.frame.size.height - scrView.frame.size.height)/2;
+//    NSLog(@"pt is x=%f and y=%f",pt.x, pt.y);
+//    [scrView setContentOffset:pt animated:YES];
+//    
+//    NSString *tagPtX = [NSString stringWithFormat:@"PtX%d",tagNumber];
+//    NSString *tagPtY = [NSString stringWithFormat:@"PtY%d",tagNumber];
+//    NSString *tagScale = [NSString stringWithFormat:@"Scale%d",tagNumber];
+//    [defaults setFloat:pt.x  forKey:tagPtX];
+//    [defaults setFloat:pt.y forKey:tagPtY];
+//    [defaults setFloat:rateFit forKey:tagScale];
+//    switch (tagNumber) {
+//        case 0:{
+//            zoom1 = [defaults floatForKey:@"Scale0"];
+//            [defaults setFloat:0.0f forKey:@"PanX0"];
+//            [defaults setFloat:0.0f forKey:@"PanY0"];
+//            [defaults setFloat:1.0f forKey:@"Zoom0"];
+//        }
+//            break;
+//        case 1:{
+//            zoom2 = [defaults floatForKey:@"Scale1"];
+//            [defaults setFloat:0.0f forKey:@"PanX1"];
+//            [defaults setFloat:0.0f forKey:@"PanY1"];
+//            [defaults setFloat:1.0f forKey:@"Zoom1"];
+//        }
+//            break;
+//        case 2:{
+//            zoom3 = [defaults floatForKey:@"Scale2"];
+//            [defaults setFloat:0.0f forKey:@"PanX2"];
+//            [defaults setFloat:0.0f forKey:@"PanY2"];
+//            [defaults setFloat:1.0f forKey:@"Zoom2"];
+//        }
+//            break;
+//        case 3:{
+//            zoom4 = [defaults floatForKey:@"Scale3"];
+//            [defaults setFloat:0.0f forKey:@"PanX3"];
+//            [defaults setFloat:0.0f forKey:@"PanY3"];
+//            [defaults setFloat:1.0f forKey:@"Zoom3"];
+//        }
+//            break;
+//            
+//    }
+//    //    [self resetPostionZoomParameters];
+//    //    [self resetGestureParameters];
+//    NSLog(@"angle is %f",angle);
+//    imgView.transform = CGAffineTransformRotate(imgView.transform, angle);
+//    
+//}
 - (void) fillRotateMenu {
     CGRect frame = CGRectMake(5.0, 5.0, 310.0, 47.0);
     sliderRotate = [[UISlider alloc] initWithFrame:frame];
@@ -1686,16 +1795,16 @@
     
     labelRotate = [[UILabel alloc] initWithFrame:CGRectMake(265, 0, 50, 15)];
     labelRotate.textAlignment = NSTextAlignmentRight;
-    labelRotate.textColor = [UIColor whiteColor];
+    labelRotate.textColor = [UIColor lightGrayColor];
     labelRotate.font = [UIFont systemFontOfSize:12];
-    labelRotate.backgroundColor=[UIColor clearColor];
-    labelRotate.layer.shadowOffset=CGSizeMake(1, 1);
-    labelRotate.layer.shadowColor= [UIColor blackColor].CGColor;
-    labelRotate.layer.shadowOpacity = 0.8;
+//    labelRotate.backgroundColor=[UIColor clearColor];
+//    labelRotate.layer.shadowOffset=CGSizeMake(1, 1);
+//    labelRotate.layer.shadowColor= [UIColor blackColor].CGColor;
+//    labelRotate.layer.shadowOpacity = 0.8;
     [self.rotateMenuView addSubview:labelRotate];
     
     UIButton *resetButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    resetButton.frame = CGRectMake(5*5+58*4, 57,  58, 58);
+    resetButton.frame = CGRectMake(20*4+46*4+5, 57,  46, 46);
     [resetButton setTitle:@"reset" forState:UIControlStateNormal];
     resetButton.titleLabel.font = [UIFont systemFontOfSize:18];
     resetButton.backgroundColor=[UIColor lightGrayColor];
@@ -1703,7 +1812,7 @@
     [resetButton addTarget:self action:@selector(resetRotate) forControlEvents:UIControlEventTouchUpInside];
     [self.rotateMenuView addSubview:resetButton];
     UIButton *minusAngleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    minusAngleButton.frame = CGRectMake(5, 57,  58, 58);
+    minusAngleButton.frame = CGRectMake(5, 57,  46, 46);
     minusAngleButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [minusAngleButton setTitle:@"-10°" forState:UIControlStateNormal];
     minusAngleButton.backgroundColor=[UIColor lightGrayColor];
@@ -1712,7 +1821,7 @@
     [self.rotateMenuView addSubview:minusAngleButton];
     
     UIButton *rightAngleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightAngleButton.frame = CGRectMake(5*2+58, 57,  58, 58);
+    rightAngleButton.frame = CGRectMake(51+20, 57,  46, 46);
     rightAngleButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [rightAngleButton setTitle:@"90°" forState:UIControlStateNormal];
     rightAngleButton.backgroundColor=[UIColor lightGrayColor];
@@ -1721,7 +1830,7 @@
     [self.rotateMenuView addSubview:rightAngleButton];
     
     UIButton *plusAngleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    plusAngleButton.frame = CGRectMake(5*3+58*2, 57,  58, 58);
+    plusAngleButton.frame = CGRectMake(20*2+46*2+5, 57,  46, 46);
     plusAngleButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [plusAngleButton setTitle:@"10°" forState:UIControlStateNormal];
     plusAngleButton.backgroundColor=[UIColor lightGrayColor];
@@ -1730,7 +1839,7 @@
     [self.rotateMenuView addSubview:plusAngleButton];
     
     UIButton *flipButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    flipButton.frame = CGRectMake(5*4+58*3, 57,  58, 58);
+    flipButton.frame = CGRectMake(20*3+46*3+5, 57,  46, 46);
     flipButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [flipButton setTitle:@"flip" forState:UIControlStateNormal];
     flipButton.backgroundColor=[UIColor lightGrayColor];
@@ -1753,12 +1862,12 @@
     
     labelSplit = [[UILabel alloc] initWithFrame:CGRectMake(265, 0, 50, 15)];
     labelSplit.textAlignment = NSTextAlignmentRight;
-    labelSplit.textColor = [UIColor whiteColor];
+    labelSplit.textColor = [UIColor lightGrayColor];
     labelSplit.font = [UIFont systemFontOfSize:12];
-    labelSplit.backgroundColor=[UIColor clearColor];
-    labelSplit.layer.shadowOffset=CGSizeMake(1, 1);
-    labelSplit.layer.shadowColor= [UIColor blackColor].CGColor;
-    labelSplit.layer.shadowOpacity = 0.8;
+//    labelSplit.backgroundColor=[UIColor clearColor];
+//    labelSplit.layer.shadowOffset=CGSizeMake(1, 1);
+//    labelSplit.layer.shadowColor= [UIColor blackColor].CGColor;
+//    labelSplit.layer.shadowOpacity = 0.8;
     [self.splitMenuView addSubview:labelSplit];
     
 }
@@ -1806,12 +1915,14 @@
                     imageView.transform = CGAffineTransformScale(imageView.transform, zoomFactor, zoomFactor);
         }
     totalRotate = fmodf(totalRotate, 2*M_PI);
+//    [defaults setFloat:totalRotate forKey:@"Rotate"];
+
     labelRotate.text = [NSString stringWithFormat:@"%.0f",radiansToDegrees(totalRotate)];
 }
 - (void) rightAngleRotate {
     [Flurry logEvent:@"rightAngle"];
         CGFloat rotateAngle = [defaults floatForKey:@"Rotate"]+M_PI_2;
-        [defaults setFloat:rotateAngle forKey:@"Rotate"];
+//        [defaults setFloat:rotateAngle forKey:@"Rotate"];
         CGFloat zoomFactor = [defaults floatForKey:@"Zoom"];
         for (UIScrollView *blockSlider in droppableAreas){
                 if (blockSlider.subviews.count==0) return;
@@ -1824,6 +1935,8 @@
                     imageView.transform = CGAffineTransformScale(imageView.transform, zoomFactor, zoomFactor);
         }
         rotateAngle = fmodf(rotateAngle, 2*M_PI);
+    [defaults setFloat:rotateAngle forKey:@"Rotate"];
+
     labelRotate.text = [NSString stringWithFormat:@"%.0f",radiansToDegrees(rotateAngle)];
 
 }
@@ -1832,7 +1945,7 @@
     [Flurry logEvent:@"plusTen"];
 
     CGFloat rotateAngle = [defaults floatForKey:@"Rotate"]+M_PI_2/9;
-    [defaults setFloat:rotateAngle forKey:@"Rotate"];
+//    [defaults setFloat:rotateAngle forKey:@"Rotate"];
     CGFloat zoomFactor = [defaults floatForKey:@"Zoom"];
     for (UIScrollView *blockSlider in droppableAreas){
             if (blockSlider.subviews.count==0) return;
@@ -1845,6 +1958,8 @@
                 imageView.transform = CGAffineTransformScale(imageView.transform, zoomFactor, zoomFactor);
     }
     rotateAngle = fmodf(rotateAngle, 2*M_PI);
+    [defaults setFloat:rotateAngle forKey:@"Rotate"];
+
     labelRotate.text = [NSString stringWithFormat:@"%.0f",radiansToDegrees(rotateAngle)];
 
 }
@@ -1853,7 +1968,7 @@
     [Flurry logEvent:@"minusTen"];
 
     CGFloat rotateAngle = [defaults floatForKey:@"Rotate"]-M_PI_2/9;
-    [defaults setFloat:rotateAngle forKey:@"Rotate"];
+//    [defaults setFloat:rotateAngle forKey:@"Rotate"];
     CGFloat zoomFactor = [defaults floatForKey:@"Zoom"];
     for (UIScrollView *blockSlider in droppableAreas){
             if (blockSlider.subviews.count==0) return;
@@ -1866,6 +1981,8 @@
                 imageView.transform = CGAffineTransformScale(imageView.transform, zoomFactor, zoomFactor);
     }
     rotateAngle = fmodf(rotateAngle, 2*M_PI);
+    [defaults setFloat:rotateAngle forKey:@"Rotate"];
+
     labelRotate.text = [NSString stringWithFormat:@"%.0f",radiansToDegrees(rotateAngle)];
 
 }
@@ -3512,109 +3629,200 @@
     float  nTopMargin =0;
     
     if (style == 1) {
-        if( sub == 1) {
-            scroll_width = self.frameContainer.frame.size.width - 10 * 2;
-            scroll_height = self.frameContainer.frame.size.height - 10 * 2;
-            rc = CGRectMake(10, 10, scroll_width, scroll_height );
+        if ( sub == 1) {  //full frame
+
+            scroll_width = self.frameContainer.frame.size.width - 2*nMargin;
+            scroll_height = self.frameContainer.frame.size.height - 2*nMargin;
+            rc = CGRectMake(nMargin, nMargin, scroll_width, scroll_height );
+//            CALayer *mask = [CALayer layer];
+//            mask.contents = (id)[[UIImage imageNamed:@"maskCircle.png"] CGImage];
+//            mask.frame = CGRectMake(nMargin-5, nMargin-20, scroll_width-10, scroll_height-10 );
+//            blockSlider1.layer.mask=mask;
             return rc;
-        }else if( sub == 2) {
-            scroll_width = self.frameContainer.frame.size.width - 10 * 4;//10*7
-            scroll_height = self.frameContainer.frame.size.height - 10 * 4;//10*7
-            nLeftMargin =10 * 4/2;//10*7
-            nTopMargin = 10 * 4/2;//10*7
+        }
+        else if( sub == 6) { // fixed height, change width
+            scroll_width = self.frameContainer.frame.size.width - 100 + 4*nMargin;
+            scroll_height = self.frameContainer.frame.size.height - 100+2*nMargin;
+            rc = CGRectMake(50-2*nMargin, 50-nMargin, scroll_width, scroll_height );
+            return rc;
+        }else if( sub == 3) { //full on width, change height
+            scroll_width = self.frameContainer.frame.size.width ;//10*7
+            scroll_height = self.frameContainer.frame.size.height - 10 * 4-nMargin*2;//10*7
+            nLeftMargin =0;
+            nTopMargin = 0;
+//            nLeftMargin =10 * 4/2;//10*7
+//            nTopMargin = 10 * 4/2;//10*7
             rc = CGRectMake(nLeftMargin, nTopMargin, scroll_width, scroll_height );
             return rc;
         }
-        else if( sub == 3) {
-            scroll_width = self.frameContainer.frame.size.width - 10 * 2;
-            scroll_height = self.self.frameContainer.frame.size.height - 70; // - 10*7*2 = -140
-            rc = CGRectMake(10, 10, scroll_width, scroll_height );
+//        else if( sub == 4) { //
+////            scroll_width = self.frameContainer.frame.size.width - 10 * 2;
+////            scroll_height = self.self.frameContainer.frame.size.height - 70; // - 10*7*2 = -140
+//            scroll_width = self.frameContainer.frame.size.width - 100+nMargin*3;
+//            scroll_height = self.self.frameContainer.frame.size.height - 100+nMargin*3;
+//            rc = CGRectMake(0, 0, scroll_width, scroll_height );
+//            return rc;
+//        }
+       
+        
+        else if ( sub == 5) {
+            scroll_width = (self.frameContainer.frame.size.width + nMargin * 3 ) / 2;
+            scroll_height = (self.frameContainer.frame.size.height + nMargin * 3 ) / 2;
+            nLeftMargin = -nMargin * 3 + scroll_width;
+            rc = CGRectMake(nLeftMargin, 0, scroll_width, scroll_height );
             return rc;
         }
         else if ( sub == 4) {
-            scroll_width = self.frameContainer.frame.size.width - nMargin * 5*2;// *8*2
-            scroll_height = self.frameContainer.frame.size.height - nMargin * 5*2;
-        }
-        
-        else if ( sub == 5) {
-            scroll_width = (self.frameContainer.frame.size.width - nMargin * 3 ) / 2;
-            scroll_height = (self.frameContainer.frame.size.height - nMargin * 3 ) / 2;
-            nLeftMargin = nMargin * 2 + scroll_width;
-            rc = CGRectMake(nLeftMargin, nMargin, scroll_width, scroll_height );
-            return rc;
-        }
-        else if ( sub == 6) { //full
-            scroll_width = 310;
-            scroll_height = 310;//350
+            scroll_width = self.frameContainer.frame.size.width -100+ nMargin * 5;// *8*2
+            scroll_height = self.frameContainer.frame.size.height -100+ nMargin * 5;
             rc = CGRectMake(0, 0, scroll_width, scroll_height );
             return rc;
         }
+//        else if ( sub == 7) { // right frame
+//            scroll_width = 270;
+//            scroll_height = 310;
+//            rc = CGRectMake(0, 0, scroll_width+nMargin, scroll_height );
+//            return rc;
+//        }
+//        else if ( sub == 8) { // small right corner with 10 margin top/right
+//            scroll_width = 150+nMargin;
+//            scroll_height = 150+nMargin;
+//            //            nTopMargin = nMargin;
+//            //            nLeftMargin = 0;
+//            //nLeftMargin=  200;
+//            NSLog(@"width=%f , height=%f",scroll_width,scroll_height);
+//            rc = CGRectMake(150-nMargin/2, 10, scroll_width, scroll_height );
+//            return rc;
+//        }
+
+//        else if ( sub == 7) { //full
+//            scroll_width = 310-nMargin;
+//            scroll_height = 310-nMargin;//350
+//            rc = CGRectMake(0-nMargin/2, 0-nMargin/2, scroll_width, scroll_height );
+//            return rc;
+//        }
         
-        //secondFrameSlider stuff begins here
         
         else if ( sub == 7) { //tall right with 10 margin top/right
-            scroll_width = 240;
+            scroll_width = 220+3*nMargin;
             scroll_height = 290; //330
             //            nTopMargin = nMargin;
             //            nLeftMargin = 0;
             //nLeftMargin=  200;
-            NSLog(@"width=%f , height=%f",scroll_width,scroll_height);
-            rc = CGRectMake(60, 10, scroll_width, scroll_height );
+//            NSLog(@"width=%f , height=%f",scroll_width,scroll_height);
+            rc = CGRectMake(0, 10, scroll_width, scroll_height );
             return rc;
         }
-        //        else if ( sub == 8) { // small right corner with 10 margin top/right
-        //            scroll_width = 150;
-        //            scroll_height = 150;
-        //            //            nTopMargin = nMargin;
-        //            //            nLeftMargin = 0;
-        //            //nLeftMargin=  200;
-        //            NSLog(@"width=%f , height=%f",scroll_width,scroll_height);
-        //            rc = CGRectMake(150, 10, scroll_width, scroll_height );
-        //            return rc;
-        //        }
-        
-        else if ( sub == 9) {  //frame with horizontal bottom
+        else if ( sub == 8) {  //frame with horizontal bottom
             scroll_width = 310;
-            scroll_height = 250; //250
+            scroll_height = 270-nMargin*3; //250
             rc = CGRectMake(0, 0, scroll_width, scroll_height );
             return rc;
         }
-        else if ( sub == 10) { // left column frame
-            scroll_width = 250;
+        else if ( sub == 9) { // left column frame
+            scroll_width = 210+nMargin*3;
             scroll_height = 310; //350
-            rc = CGRectMake(60, 0, scroll_width, scroll_height );
+            rc = CGRectMake(100-nMargin*3, 0, scroll_width, scroll_height );
             return rc;
         }
-        else if ( sub == 11) { // middle column frame
-            scroll_width = 210;
+        else if ( sub == 10) { // middle column frame
+            scroll_width = 280-4*nMargin;
             scroll_height = 310; //350
-            rc = CGRectMake(50, 0, scroll_width, scroll_height );
+            rc = CGRectMake(15+2*nMargin, 0, scroll_width, scroll_height );
             return rc;
         }
-        else if ( sub == 12) { // middle row frame
+        
+        else if ( sub == 11) { // middle row frame
             scroll_width = 310;
-            scroll_height = 210; //250
-            rc = CGRectMake(0, 50, scroll_width, scroll_height );
+            scroll_height = 280-4*nMargin; //250
+            rc = CGRectMake(0, 15+2*nMargin, scroll_width, scroll_height );
             return rc;
         }
-        else if ( sub == 13) { // left corner frame
-            scroll_width = 150;
-            scroll_height = 150;
-            rc = CGRectMake(60, 60, scroll_width, scroll_height );
+        
+        
+//        else if ( sub == 13) {   //        //secondFrameSlider stuff begins here
+//            scroll_width = 50;
+//            scroll_height =50;
+//            rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
+//            
+//            CALayer *mask = [CALayer layer];
+//            mask.contents = (id)[[UIImage imageNamed:@"maskHeart.png"] CGImage];
+//            mask.frame = rc;
+//            blockSlider1.layer.mask=mask;
+//            return rc;
+//        }
+//        else if ( sub == 14) {
+//            scroll_width = 50;
+//            scroll_height =50;
+//            rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
+//            
+//            CALayer *mask = [CALayer layer];
+//            mask.contents = (id)[[UIImage imageNamed:@"maskStar.png"] CGImage];
+//            mask.frame = rc;
+//            blockSlider1.layer.mask=mask;
+//            return rc;
+//        }
+//        else if ( sub == 15) {
+//            scroll_width = 50;
+//            scroll_height =50;
+//            rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
+//            
+//            CALayer *mask = [CALayer layer];
+//            mask.contents = (id)[[UIImage imageNamed:@"maskDiamond.png"] CGImage];
+//            mask.frame = rc;
+//            blockSlider1.layer.mask=mask;
+//            return rc;
+//        }
+//        else if ( sub == 16) {
+//            scroll_width = 50;
+//            scroll_height =50;
+//            rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
+//            
+//            CALayer *mask = [CALayer layer];
+//            mask.contents = (id)[[UIImage imageNamed:@"maskTriangle.png"] CGImage];
+//            mask.frame = rc;
+//            blockSlider1.layer.mask=mask;
+//            return rc;
+//        }
+//        else if ( sub == 17) {
+//            scroll_width = 50;
+//            scroll_height =50;
+//            rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
+//            
+//            CALayer *mask = [CALayer layer];
+//            mask.contents = (id)[[UIImage imageNamed:@"maskInvertedTriangle.png"] CGImage];
+//            mask.frame = rc;
+//            blockSlider1.layer.mask=mask;
+//            return rc;
+//        }
+        else if ( sub == 12) { // left corner frame
+            scroll_width = 150+4*nMargin;
+            scroll_height = 150+4*nMargin;
+            rc = CGRectMake(60-2*nMargin, 60-2*nMargin, scroll_width, scroll_height );
             return rc;
         }
-        else if ( sub == 14) { // right frame
-            scroll_width = 200;
-            scroll_height = 200;
-            rc = CGRectMake(55, 55, scroll_width, scroll_height );
+        else if ( sub == 2) { // right frame
+            scroll_width = 200+2*nMargin;
+            scroll_height = 200+2*nMargin;
+            rc = CGRectMake(55-nMargin, 55-nMargin, scroll_width, scroll_height );
             return rc;
         }
-        //        else if ( sub == 15) { // right frame
-        //            scroll_width = 310;
-        //            scroll_height = 350;
-        //            rc = CGRectMake(0, 0, scroll_width, scroll_height );
-        //            return rc;
-        //        }
+//        else if ( sub == 20) { // right frame
+//            scroll_width = 270;
+//            scroll_height = 310;
+//            rc = CGRectMake(0, 0, scroll_width+nMargin, scroll_height );
+//            return rc;
+//        }
+//        else if ( sub == 21) { // small right corner with 10 margin top/right
+//            scroll_width = 150+nMargin;
+//            scroll_height = 150+nMargin;
+//            //            nTopMargin = nMargin;
+//            //            nLeftMargin = 0;
+//            //nLeftMargin=  200;
+//            NSLog(@"width=%f , height=%f",scroll_width,scroll_height);
+//            rc = CGRectMake(150-nMargin/2, 10, scroll_width, scroll_height );
+//            return rc;
+//        }
     }
     
     else if (style == 2) {
@@ -4046,7 +4254,7 @@
             rc = CGRectMake(0, 155, scroll_width, scroll_height );
             return rc;
         }
-        else if ( sub == 18) { // star frame
+        else if ( sub == 18) {
             scroll_width = 50;
             scroll_height =50;
             rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
@@ -4057,7 +4265,7 @@
             blockSlider2.layer.mask=mask;
             return rc;
         }
-        else if ( sub == 17) { // heart frame
+        else if ( sub == 17) {
             scroll_width = 50;
             scroll_height =50;
             rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
@@ -4068,7 +4276,7 @@
             blockSlider2.layer.mask=mask;
             return rc;
         }
-        else if ( sub == 19) { // heart frame
+        else if ( sub == 19) {
             scroll_width = 50;
             scroll_height =50;
             rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
@@ -4079,7 +4287,7 @@
             blockSlider2.layer.mask=mask;
             return rc;
         }
-        else if ( sub == 20) { // heart frame
+        else if ( sub == 20) {
             scroll_width = 50;
             scroll_height =50;
             rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
@@ -4090,7 +4298,7 @@
             blockSlider2.layer.mask=mask;
             return rc;
         }
-        else if ( sub == 22) { // heart frame
+        else if ( sub == 22) {
             scroll_width = 50;
             scroll_height =50;
             rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );
@@ -4101,7 +4309,7 @@
             blockSlider2.layer.mask=mask;
             return rc;
         }
-        else if ( sub == 21) { // heart frame
+        else if ( sub == 21) {
             scroll_width = 50;
             scroll_height =50;
             rc = CGRectMake(155-50/2-nMargin*6+adjustedPtX2, 155-50/2-nMargin*6+adjustedPtY2, scroll_width+nMargin*12, scroll_height+nMargin*12 );

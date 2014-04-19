@@ -55,19 +55,19 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frame entire photo with one tap!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OqC-Xo-EeP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use one frame to create a striking image of your photo!  tap on a photo to start" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0wB-Qg-ByA">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use One Frame to post your entire photo without cropping!  tap on a photo to start" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0wB-Qg-ByA">
                                         <rect key="frame" x="10" y="42" width="300" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.68627452850000004" green="0.74509805439999999" blue="0.082352943720000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
                     </view>
@@ -128,7 +128,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bSX-Ub-iXk">
-                                                <rect key="frame" x="5" y="-5" width="50" height="44"/>
+                                                <rect key="frame" x="5" y="-5" width="62" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Rotate">
@@ -139,7 +139,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1BQ-Yc-ygF">
-                                                <rect key="frame" x="68" y="-5" width="60" height="44"/>
+                                                <rect key="frame" x="87" y="-5" width="64" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Frames">
@@ -150,7 +150,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ver-eg-akV">
-                                                <rect key="frame" x="141" y="-5" width="55" height="44"/>
+                                                <rect key="frame" x="175" y="-5" width="55" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Filters">
@@ -161,10 +161,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TfI-eq-Jkz">
-                                                <rect key="frame" x="208" y="2" width="46" height="30"/>
+                                                <rect key="frame" x="256" y="2" width="55" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Split">
+                                                <state key="normal" title="Resize">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -172,20 +172,8 @@
                                                     <action selector="splitButton:" destination="kAk-mV-MuV" eventType="touchUpInside" id="T6U-fv-D8H"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PlZ-eU-1Hh" userLabel="Button - resize">
-                                                <rect key="frame" x="266" y="2" width="48" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="move">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resizeButton:" destination="kAk-mV-MuV" eventType="touchUpInside" id="u2o-U1-PON"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </scrollView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="zOz-u5-ZmK" userLabel="Scroll View - rotate">
                                         <rect key="frame" x="0.0" y="33" width="320" height="151"/>
@@ -215,8 +203,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="DFI-7S-QPB">
                         <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title=" " id="gaH-JW-xpC"/>
-                        <barButtonItem key="rightBarButtonItem" title="done" id="JaP-LA-TDa">
+                        <barButtonItem key="backBarButtonItem" title=" " id="gaH-JW-xpC">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="JaP-LA-TDa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="DqS-NE-TGa" kind="push" identifier="doneDesign" id="0O0-vu-83z"/>
                             </connections>
@@ -257,9 +248,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6lv-Ev-Mzq">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="SHARE">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,9 +260,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bnE-Rn-RE2">
-                                        <rect key="frame" x="200" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="180" y="0.0" width="60" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="SAVE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -282,9 +273,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IAL-oP-9fz">
-                                        <rect key="frame" x="250" y="0.0" width="70" height="50"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="DELETE">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -300,8 +291,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qkJ-o1-MtF">
-                        <barButtonItem key="backBarButtonItem" title=" " id="U9o-S1-Lle"/>
-                        <barButtonItem key="rightBarButtonItem" title="home" id="sXf-ar-7za">
+                        <barButtonItem key="rightBarButtonItem" title="Home" id="sXf-ar-7za">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="goHome:" destination="DqS-NE-TGa" id="MQb-9c-RSi"/>
                             </connections>
@@ -317,7 +308,7 @@
             </objects>
             <point key="canvasLocation" x="1477" y="374"/>
         </scene>
-        <!--Grid View Controller-->
+        <!--Grid View Controller -  -->
         <scene sceneID="5qN-4i-k9E">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="GAH-FH-yWc" customClass="gridViewController" sceneMemberID="viewController">
@@ -358,8 +349,10 @@
                             <outlet property="delegate" destination="GAH-FH-yWc" id="vTV-l1-SkR"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="PjX-qL-szc">
-                        <barButtonItem key="backBarButtonItem" title=" " id="3Y7-n9-VT9"/>
+                    <navigationItem key="navigationItem" title=" " id="PjX-qL-szc">
+                        <barButtonItem key="backBarButtonItem" title=" " id="3Y7-n9-VT9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="gridCollectionView" destination="4tp-jv-NAj" id="Z2f-Yf-mpK"/>
@@ -388,7 +381,11 @@
         <scene sceneID="hcD-PT-vpS">
             <objects>
                 <pageViewController storyboardIdentifier="PageView" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="j1W-oP-z1w" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Hd2-RY-uXC"/>
+                    <navigationItem key="navigationItem" id="Hd2-RY-uXC">
+                        <barButtonItem key="backBarButtonItem" id="uby-Ci-QDq">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGK-rb-fJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -406,6 +403,7 @@
                                 <rect key="frame" x="123" y="25" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1kl-yd-Ye1">
@@ -417,9 +415,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I8e-pX-afk">
-                                        <rect key="frame" x="250" y="0.0" width="70" height="50"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="DELETE">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -429,9 +427,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bdd-R1-5Iv">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="SHARE">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -456,7 +454,7 @@
             </objects>
             <point key="canvasLocation" x="2242" y="-286"/>
         </scene>
-        <!--Share View Controller-->
+        <!--Share View Controller -  -->
         <scene sceneID="QQw-aE-HoL">
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" id="kG5-Sn-7m9" customClass="shareViewController" sceneMemberID="viewController">
@@ -557,7 +555,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="iJu-Ji-E2k"/>
+                    <navigationItem key="navigationItem" title=" " id="iJu-Ji-E2k" userLabel="Navigation Item -"/>
                     <connections>
                         <outlet property="imageView1" destination="5CY-N9-F3y" id="Bhl-5m-9Z5"/>
                         <outlet property="imageView2" destination="prn-CO-XmS" id="B50-aw-JEN"/>
@@ -612,9 +610,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="lsW-gm-r9w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.68627452850000004" green="0.74509805439999999" blue="0.082352943720000002" alpha="1" colorSpace="deviceRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
@@ -635,7 +633,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="wvg-0c-vpx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.68627452850000004" green="0.74509805439999999" blue="0.082352943720000002" alpha="1" colorSpace="deviceRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

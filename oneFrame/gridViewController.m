@@ -34,7 +34,7 @@
     label.font = [UIFont systemFontOfSize:18];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = @"my splits";
+    label.text = @"my One Frames";
     self.navigationItem.titleView = label;
 }
 - (void)viewDidAppear:(BOOL)animated   {

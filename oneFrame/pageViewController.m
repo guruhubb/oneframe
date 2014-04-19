@@ -27,7 +27,7 @@
     label.font = [UIFont systemFontOfSize:18];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = @"My One Frames";
+    label.text = @"my One Frames";
     self.navigationItem.titleView = label;
     [self setUp];
     [Flurry logEvent:@"myOneFrames"];
