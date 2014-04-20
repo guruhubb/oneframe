@@ -25,9 +25,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (!IS_TALL_SCREEN) {
-        self.shareView.frame = CGRectMake(0, 0, 320, 436);  // for 3.5 screen; remove autolayout
-    }
+//    if (!IS_TALL_SCREEN) {
+//        self.shareView.frame = CGRectMake(0, 0, 320, 436);  // for 3.5 screen; remove autolayout
+//    }
     CGRect frame = CGRectMake(0, 0, 125, 40);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
 //    label.backgroundColor = [UIColor clearColor];
@@ -48,14 +48,14 @@
     self.imageView1.layer.cornerRadius = radius;
     self.imageView2.layer.cornerRadius = radius;
     self.imageView3.layer.cornerRadius = radius;
-    self.imageView4.layer.cornerRadius = radius;
-    self.imageView5.layer.cornerRadius = radius;
+//    self.imageView4.layer.cornerRadius = radius;
+//    self.imageView5.layer.cornerRadius = radius;
     self.imageView6.layer.cornerRadius = radius;
     self.imageView7.layer.cornerRadius = radius;
     self.imageView8.layer.cornerRadius = radius;
 }
 - (void)cancel {
-    [self dismissViewControllerAnimated: YES completion: nil];
+    [self dismissViewControllerAnimated: NO completion: nil];
 }
 
 - (IBAction)postToFacebook:(id)sender {

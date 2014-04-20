@@ -9,6 +9,7 @@
 #define screenSpecificSetting(tallScreen, normal) ((IS_TALL_SCREEN) ? tallScreen : normal)
 
 #import "doneViewController.h"
+#import "adViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "shareViewController.h"
 
@@ -66,7 +67,10 @@
 //                                             style:UIBarButtonItemStylePlain
 //                                             target:self
 //                                             action:@selector(goHome:)];
-    [self performSegueWithIdentifier:@"shareToNav" sender:self];
+//    [self performSegueWithIdentifier:@"shareToNav" sender:self];
+    [self performSegueWithIdentifier:@"adView" sender:self];
+   
+
 }
 - (IBAction)saveImageAction:(id)sender {
     [self saveImage];
@@ -146,9 +150,15 @@
 		UINavigationController *navigationController = segue.destinationViewController;
 		shareViewController *vc = [[navigationController viewControllers] objectAtIndex:0];
         vc.image=self.image;
-        NSLog(@"vc.imageDone is %@",vc.image);
+//        NSLog(@"vc.imageDone is %@",vc.image);
         //		vc.delegate = self;
 	}
+//    else {
+//        UINavigationController *navigationController = segue.destinationViewController;
+//        adViewController *vc = [[navigationController viewControllers] objectAtIndex:0];
+////        vc.image=self.image;
+////        NSLog(@"vc.imageDone is %@",vc.image);
+//    }
 //
 //    if ([[segue identifier] isEqualToString:@"ShareViewController"])
 //    {

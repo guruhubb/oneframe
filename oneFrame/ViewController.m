@@ -44,7 +44,7 @@
 
 - (void) showSurvey {
     NSLog(@"showSurvey");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Like One Frame? Please Rate us" message:nil
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Like One Frame? Please Rate" message:nil
                                                    delegate:self cancelButtonTitle:@"Remind me later" otherButtonTitles:@"Yes, I will rate now", @"Don't ask me again", nil];
     [alert show];
 

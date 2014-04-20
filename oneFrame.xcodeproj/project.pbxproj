@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0A5A15190346EB001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.39.40 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A13190346EB001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.39.40 PM.png */; };
+		CC0A5A16190346EB001745F9 /* splitagram icon 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A14190346EB001745F9 /* splitagram icon 1024.png */; };
+		CC0A5A1819034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A1719034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png */; };
+		CC0A5A1E19034992001745F9 /* adViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5A1D19034992001745F9 /* adViewController.m */; };
 		CC6C6527190093A800F7D53F /* designViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C6518190093A800F7D53F /* designViewController.m */; };
 		CC6C6528190093A800F7D53F /* doneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C651A190093A800F7D53F /* doneViewController.m */; };
 		CC6C6529190093A800F7D53F /* gridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C651C190093A800F7D53F /* gridViewController.m */; };
@@ -268,6 +272,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC0A5A13190346EB001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.39.40 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen shot Apr 16, 2014, 3.39.40 PM.png"; path = "ad images/iOS Simulator Screen shot Apr 16, 2014, 3.39.40 PM.png"; sourceTree = "<group>"; };
+		CC0A5A14190346EB001745F9 /* splitagram icon 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splitagram icon 1024.png"; path = "ad images/splitagram icon 1024.png"; sourceTree = "<group>"; };
+		CC0A5A1719034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png"; path = "ad images/iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png"; sourceTree = "<group>"; };
+		CC0A5A1C19034992001745F9 /* adViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adViewController.h; sourceTree = "<group>"; };
+		CC0A5A1D19034992001745F9 /* adViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = adViewController.m; sourceTree = "<group>"; };
 		CC6C6517190093A800F7D53F /* designViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = designViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CC6C6518190093A800F7D53F /* designViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = designViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC6C6519190093A800F7D53F /* doneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = doneViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -569,6 +578,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC0A5A1219034642001745F9 /* ad images */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A5A1719034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png */,
+				CC0A5A13190346EB001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.39.40 PM.png */,
+				CC0A5A14190346EB001745F9 /* splitagram icon 1024.png */,
+			);
+			name = "ad images";
+			sourceTree = "<group>";
+		};
 		CC6C652F190093DB00F7D53F /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,6 +643,7 @@
 		CC6C6549190093DB00F7D53F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A5A1219034642001745F9 /* ad images */,
 				CC6C654A190093DB00F7D53F /* filter images */,
 				CC6C6563190093DB00F7D53F /* filters */,
 				CC6C658C190093DB00F7D53F /* frame icons */,
@@ -929,6 +949,8 @@
 		CCD28D6218D9F027001127EC /* oneFrame */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A5A1C19034992001745F9 /* adViewController.h */,
+				CC0A5A1D19034992001745F9 /* adViewController.m */,
 				CCD28D6B18D9F027001127EC /* AppDelegate.h */,
 				CCD28D6C18D9F027001127EC /* AppDelegate.m */,
 				CCD28D7118D9F027001127EC /* ViewController.h */,
@@ -1120,6 +1142,7 @@
 				CC6C66BA190093DC00F7D53F /* Frame21.png in Resources */,
 				CC6C66FB190093DC00F7D53F /* maskCircle.png in Resources */,
 				CC6C6660190093DC00F7D53F /* DBSetup.sql in Resources */,
+				CC0A5A15190346EB001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.39.40 PM.png in Resources */,
 				CC6C66DC190093DC00F7D53F /* secondFrame25.png in Resources */,
 				CC6C66B0190093DC00F7D53F /* Frame11.png in Resources */,
 				CC6C67701900971300F7D53F /* TapjoyResources.bundle in Resources */,
@@ -1162,6 +1185,7 @@
 				CC6C66C8190093DC00F7D53F /* secondFrame10.png in Resources */,
 				CC6C6674190093DC00F7D53F /* filter16.png in Resources */,
 				CC6C67D51900CABE00F7D53F /* MainStoryboard.storyboard in Resources */,
+				CC0A5A16190346EB001745F9 /* splitagram icon 1024.png in Resources */,
 				CC6C66C9190093DC00F7D53F /* secondFrame10a.png in Resources */,
 				CC6C669A190093DC00F7D53F /* lookup.png in Resources */,
 				CC6C669F190093DC00F7D53F /* purple-green.acv in Resources */,
@@ -1223,6 +1247,7 @@
 				CC6C669C190093DC00F7D53F /* lookup_miss_etikate.png in Resources */,
 				CC6C66E5190093DC00F7D53F /* secondFrame32.png in Resources */,
 				CC6C66FD190093DC00F7D53F /* maskHeart.png in Resources */,
+				CC0A5A1819034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png in Resources */,
 				CC6C66AE190093DC00F7D53F /* Frame09.png in Resources */,
 				CC6C6703190093DC00F7D53F /* mouse-black.png in Resources */,
 				CC6C66A7190093DC00F7D53F /* Frame03.png in Resources */,
@@ -1281,6 +1306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC6C652C190093A800F7D53F /* PhotoCell.m in Sources */,
+				CC0A5A1E19034992001745F9 /* adViewController.m in Sources */,
 				CCD28D7318D9F027001127EC /* ViewController.m in Sources */,
 				CC6C6659190093DC00F7D53F /* SFHFKeychainUtils.m in Sources */,
 				CCD28D6D18D9F027001127EC /* AppDelegate.m in Sources */,
