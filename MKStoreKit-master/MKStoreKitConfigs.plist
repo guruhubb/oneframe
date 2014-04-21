@@ -4,8 +4,6 @@
 <dict>
 	<key>Non-Consumables</key>
 	<array>
-		<string>com.guruhubb.oneframe.frames</string>
-		<string>com.guruhubb.oneframe.filters</string>
 		<string>com.guruhubb.oneframe.watermark</string>
 	</array>
 </dict>

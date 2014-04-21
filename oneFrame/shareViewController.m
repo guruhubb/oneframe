@@ -87,7 +87,7 @@
 
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"#OneFrame created with @oneframe"];
+        [tweetSheet setInitialText:@"#OneFrame created with @oneframeapp"];
         [tweetSheet addImage:self.image];
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }
@@ -141,7 +141,7 @@
     _docController.delegate=self;
     //key to open Instagram app - need to make sure docController is "strong"
     _docController.UTI = @"com.instagram.exclusivegram";
-    _docController.annotation = [NSDictionary dictionaryWithObject:@"#OneFrame created with @oneframe" forKey:@"InstagramCaption"];
+    _docController.annotation = [NSDictionary dictionaryWithObject:@"#OneFrame created with @oneframeapp" forKey:@"InstagramCaption"];
     [_docController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
     
     //    [_docController release];
@@ -202,7 +202,7 @@
 //    NSString *temp = @"bookly";
 //    NSString *booklyMediaId = [temp stringByAppendingString:[labelContents objectForKey:@"id"]];
 //    NSString *encodedString = [inputData base64EncodedString];      //encode
-    NSString *string= @"Check it out!  \n\n______\nCreated using One Frame app.  Download for FREE! \nwww.oneframe.com";
+    NSString *string= @"Check it out!  \n\n______\nCreated using One Frame app.  Download for FREE! \nhttp://itunes.apple.com/app/id866641636";
 //    if (isImage)
 //        string= [NSString stringWithFormat:@"http://getbooklyapp.com/image.php?mediaId=%@",encodedString];
 //    else
@@ -256,7 +256,7 @@
         return;
     }
 //    NSArray *recipents = @[@"12345678", @"72345524"];
-    NSString *message = [NSString stringWithFormat:@"Created using One Frame app.  Download for FREE! www.oneframe.com"];
+    NSString *message = [NSString stringWithFormat:@"Created using One Frame app.  Download for FREE! \nhttp://itunes.apple.com/app/id866641636"];
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     [messageController addAttachmentData:UIImagePNGRepresentation(self.image) typeIdentifier:@"public.data" filename:@"image.png"];
     messageController.messageComposeDelegate = self;

@@ -15,12 +15,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-//    [Flurry setCrashReportingEnabled:YES];
-//    [Flurry startSession:@"N5GRJMCR5ZN2P9WS9R8Z"];
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:@" KQQ83V4SXWGQ6RMMSZBJ"];
     
     
-//	[Tapjoy requestTapjoyConnect:@"076a56d4-4ec1-44ce-b4b4-89e03032c2c5"
-//					   secretKey:@"BMgDZYR6Az8t23lCSQWf" options:@{ TJC_OPTION_ENABLE_LOGGING : @(YES) }];
+	[Tapjoy requestTapjoyConnect:@"cd59eaf2-03cc-4281-bde5-097cf77d4fb8"
+					   secretKey:@"LXEMsdurBKZdub6vA7OA" options:@{ TJC_OPTION_ENABLE_LOGGING : @(YES) }];
     
  
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];  //text color on nav bar
@@ -29,7 +29,7 @@
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
 
 
-//    [MKStoreManager sharedManager];
+    [MKStoreManager sharedManager];
     
     //create album
     NSString *albumName = @"One Frame";

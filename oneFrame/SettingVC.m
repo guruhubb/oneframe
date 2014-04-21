@@ -45,7 +45,7 @@
                @"Follow us on Instagram", @"Like us on Facebook",@"Follow us on Twitter",
                @"Rate App",@"Feedback",@"Restore Purchases",nil];
     [self.settingsTableView reloadData];
-    [defaults setBool:YES forKey:kFeature2];  //test
+//    [defaults setBool:YES forKey:kFeature2];  //test
 
     
 }
@@ -56,7 +56,7 @@
     
     [Flurry logEvent:@"Rate App" ];
 //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/app/850204569"]];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=850204569&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=866641636&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
 
 
     return;
@@ -64,7 +64,7 @@
     SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc] init];
     // Configure View Controller  850204569
     [storeProductViewController setDelegate:self];
-    [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"850204569"} completionBlock:^(BOOL result, NSError *error) {
+    [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"866641636"} completionBlock:^(BOOL result, NSError *error) {
         if (error) {
             NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
         } else {
@@ -90,7 +90,7 @@
     pickerMail.mailComposeDelegate = self;
     
     [pickerMail setSubject:@"Customer Feedback"];
-    [pickerMail setToRecipients:[NSArray arrayWithObject:@"oneframe@gmail.com"]];
+    [pickerMail setToRecipients:[NSArray arrayWithObject:@"oneframeapp@yahoo.com"]];
     // Fill out the email body text
     NSString *emailBody = @"Hi, I have the following feedback on One Frame...";
     [pickerMail setMessageBody:emailBody isHTML:NO];
@@ -308,19 +308,19 @@
     }
     if (indexPath.section == 1) {
         if (indexPath.row==0) {
-            NSURL *instagramURL = [NSURL URLWithString:@"instagram://user?username=oneframe"];
+            NSURL *instagramURL = [NSURL URLWithString:@"instagram://user?username=oneframeapp"];
             if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
                 [[UIApplication sharedApplication] openURL:instagramURL];
             }
         }
         if (indexPath.row==1) {
-            NSURL *fbURL = [NSURL URLWithString:@"fb://profile/671210576279888"];
+            NSURL *fbURL = [NSURL URLWithString:@"fb://profile/1440695526169043"];
             if ([[UIApplication sharedApplication] canOpenURL:fbURL]) {
                 [[UIApplication sharedApplication] openURL:fbURL];
             }
         }
         if (indexPath.row==2) {
-            NSURL *twitterURL = [NSURL URLWithString:@"twitter://user?screen_name=oneframe"];
+            NSURL *twitterURL = [NSURL URLWithString:@"twitter://user?screen_name=oneframeapp"];
             if ([[UIApplication sharedApplication] canOpenURL:twitterURL]) {
                 [[UIApplication sharedApplication] openURL:twitterURL];
             }
@@ -405,15 +405,15 @@
     
 }
 - (void) updateAppViewAndDefaults {
-    if ([MKStoreManager isFeaturePurchased:kFeature0])
-        [defaults setBool:YES forKey:kFeature0];
-    else
-        [defaults setBool:NO forKey:kFeature0];
-    
-    if([MKStoreManager isFeaturePurchased:kFeature1])
-        [defaults setBool:YES forKey:kFeature1];
-    else
-        [defaults setBool:NO forKey:kFeature1];
+//    if ([MKStoreManager isFeaturePurchased:kFeature0])
+//        [defaults setBool:YES forKey:kFeature0];
+//    else
+//        [defaults setBool:NO forKey:kFeature0];
+//    
+//    if([MKStoreManager isFeaturePurchased:kFeature1])
+//        [defaults setBool:YES forKey:kFeature1];
+//    else
+//        [defaults setBool:NO forKey:kFeature1];
     
     if([MKStoreManager isFeaturePurchased:kFeature2])
         [defaults setBool:YES forKey:kFeature2];

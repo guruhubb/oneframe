@@ -51,9 +51,9 @@
 //#define kFeature7 @"com.guruhubb.bookly.fonts"
 //#define kFeature8 @"com.guruhubb.bookly.all"
 
-#define kFeature0 @"com.guruhubb.oneframe.frames"
-#define kFeature1 @"com.guruhubb.oneframe.filters"
-#define kFeature2 @"com.guruhubb.oneframe.watermark"  
+//#define kFeature0 @"com.guruhubb.oneframe.frames"
+//#define kFeature1 @"com.guruhubb.oneframe.filters"
+#define kFeature2 @"com.guruhubb.oneframe.watermark"
 
 //#define kFeature3 @"com.guruhubb.oneframe.resize" 
 //#define kFeature3 @"com.guruhubb.bookly.stickersPack"

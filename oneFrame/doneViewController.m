@@ -68,7 +68,10 @@
 //                                             target:self
 //                                             action:@selector(goHome:)];
 //    [self performSegueWithIdentifier:@"shareToNav" sender:self];
-    [self performSegueWithIdentifier:@"adView" sender:self];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"splitagram"])
+        [self performSegueWithIdentifier:@"adView" sender:self];
+    else
+        [self performSegueWithIdentifier:@"shareToNav" sender:self];
    
 
 }

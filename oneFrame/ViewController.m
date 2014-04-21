@@ -157,7 +157,7 @@
     [Flurry logEvent:@"Rate App" ];
     [defaults setBool:YES forKey:@"rateDone"];
 //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/850204569"]];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=850204569&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=866641636&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
     return;
     
     // Initialize Product View Controller
@@ -166,7 +166,7 @@
     // Configure View Controller  850204569
     [storeProductViewController setDelegate:self];
     [storeProductViewController loadProductWithParameters:
-  @{SKStoreProductParameterITunesItemIdentifier : @"850204569"} completionBlock:^(BOOL result, NSError *error) {
+  @{SKStoreProductParameterITunesItemIdentifier : @"866641636"} completionBlock:^(BOOL result, NSError *error) {
         if (error) {
             NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
         } else {

@@ -158,7 +158,7 @@
 //    btn.tag=1; 
 
     if (btn.tag==0 || btn.tag > 25+35) btn.tag = 1;
-    [self frameClicked:btn];
+//    [self frameClicked:btn];
     [self frameClicked:btn];
 //    if (![defaults boolForKey:kFeature0])
 //        btn.tag = 20;
@@ -174,8 +174,8 @@
 //    [self centerImage];
     firstTimeDesign = YES;
 
-    [defaults setBool:YES forKey:kFeature0];  //test
-    [defaults setBool:YES forKey:kFeature1];  //test
+//    [defaults setBool:YES forKey:kFeature0];  //test
+//    [defaults setBool:YES forKey:kFeature1];  //test
 
 //    int number = [defaults integerForKey:@"number"];
 //    NSLog(@"number is %d",number);
@@ -274,15 +274,15 @@
 
 - (void) updateAppViewAndDefaults {
     
-        if ([MKStoreManager isFeaturePurchased:kFeature0])
-            [defaults setBool:YES forKey:kFeature0];
-        else
-            [defaults setBool:NO forKey:kFeature0];
-        
-        if([MKStoreManager isFeaturePurchased:kFeature1])
-            [defaults setBool:YES forKey:kFeature1];
-        else
-            [defaults setBool:NO forKey:kFeature1];
+//        if ([MKStoreManager isFeaturePurchased:kFeature0])
+//            [defaults setBool:YES forKey:kFeature0];
+//        else
+//            [defaults setBool:NO forKey:kFeature0];
+//        
+//        if([MKStoreManager isFeaturePurchased:kFeature1])
+//            [defaults setBool:YES forKey:kFeature1];
+//        else
+//            [defaults setBool:NO forKey:kFeature1];
     
 //    if([MKStoreManager isFeaturePurchased:kFeature3])
 //        [defaults setBool:YES forKey:kFeature3];
@@ -293,22 +293,22 @@
 - (void)inAppBuyAction:(int)tag {
     NSString *string;
 
-    switch (tag) {
-        case 0:
-            string = kFeature0;
-            [Flurry logEvent:@"InApp Frames"];
-            break;
-        case 1:
-            string = kFeature1;
-            [Flurry logEvent:@"InApp Filters"];
-            break;
-//        case 2:
-//            string = kFeature3;
-//            [Flurry logEvent:@"InApp Resize"];
+//    switch (tag) {
+//        case 0:
+//            string = kFeature0;
+//            [Flurry logEvent:@"InApp Frames"];
 //            break;
-        default:
-            break;
-    }
+//        case 1:
+//            string = kFeature1;
+//            [Flurry logEvent:@"InApp Filters"];
+//            break;
+////        case 2:
+////            string = kFeature3;
+////            [Flurry logEvent:@"InApp Resize"];
+////            break;
+//        default:
+//            break;
+//    }
     
     [[MKStoreManager sharedManager] buyFeature:string
                                     onComplete:^(NSString* purchasedFeature,
@@ -331,6 +331,7 @@
      }];
     
 }
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     for (int i = 0; i <= 3; i++) {
@@ -470,15 +471,15 @@
         btn.alpha = 0.4;
         [self.frameSelectionBar addSubview:btn];
         
-        if (![defaults boolForKey:kFeature0]){
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
-            imageView.alpha = 0.8;
-            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-            imageView.layer.shadowOffset = CGSizeMake(0, 1);
-            imageView.layer.shadowOpacity = 1;
-            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
-            [btn addSubview:imageView];
-        }
+//        if (![defaults boolForKey:kFeature0]){
+//            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
+//            imageView.alpha = 0.8;
+//            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
+//            imageView.layer.shadowOffset = CGSizeMake(0, 1);
+//            imageView.layer.shadowOpacity = 1;
+//            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
+//            [btn addSubview:imageView];
+//        }
     }
 
 //    for (int ind = 9; ind <= 24; ind++) {
@@ -650,10 +651,10 @@
     [defaults setInteger:clickedBtn.tag forKey:@"frame"];
     [self closeBtnClicked];
     resizeOn=NO;
-    if (![defaults boolForKey:kFeature0]){
-        [self frameAction];
-        return;
-    }
+//    if (![defaults boolForKey:kFeature0]){
+//        [self frameAction];
+//        return;
+//    }
         for (int i = 1; i <= 24; i++) {
             UIButton *frameButton = (UIButton *)[_frameSelectionBar viewWithTag:i];
             frameButton.layer.borderColor=[[UIColor clearColor] CGColor];
@@ -982,15 +983,15 @@
 
         [self.filterSelectionBar addSubview:btn];
         [self.filterSelectionBar addSubview:label];
-        if (![defaults boolForKey:kFeature1]){
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
-            imageView.alpha = 0.8;
-            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-            imageView.layer.shadowOffset = CGSizeMake(0, 1);
-            imageView.layer.shadowOpacity = 1;
-            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
-            [btn addSubview:imageView];
-        }
+//        if (![defaults boolForKey:kFeature1]){
+//            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
+//            imageView.alpha = 0.8;
+//            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
+//            imageView.layer.shadowOffset = CGSizeMake(0, 1);
+//            imageView.layer.shadowOpacity = 1;
+//            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
+//            [btn addSubview:imageView];
+//        }
     }
 }
 - (void) saveImage : (UIImage *)image {
@@ -1156,10 +1157,10 @@
 
 //    [Flurry logEvent:@"Frame - Second Effects"];
     @autoreleasepool {
-    if (![defaults boolForKey:kFeature1]){
-        [self filterAction];
-        return;
-    }
+//    if (![defaults boolForKey:kFeature1]){
+//        [self filterAction];
+//        return;
+//    }
     NSLog(@"block number %d",tapBlockNumber);
     for (int i = 1; i <= 12; i++) {
         UIButton *frameButton = (UIButton *)[_filterSelectionBar viewWithTag:i];
@@ -1385,10 +1386,10 @@
             return;
         }
     }
-    if (![defaults boolForKey:kFeature0]){
-        [self frameAction];
-        return;
-    }
+//    if (![defaults boolForKey:kFeature0]){
+//        [self frameAction];
+//        return;
+//    }
     
     if (resizeOn){
         [self closeBtnClicked];
