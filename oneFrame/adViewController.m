@@ -31,11 +31,14 @@
     label.font = [UIFont systemFontOfSize:18.0];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = @"APPS WE LIKE";
+    label.text = @"APPS  WE  LIKE";
     self.navigationItem.titleView = label;
 	// Do any additional setup after loading the view.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"CANCEL" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-   
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"glyphicons_197_remove.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"CANCEL" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+//    NSDictionary *attrs = @{ NSFontAttributeName : [UIFont systemFontOfSize:18] };
+//    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
 }
 - (IBAction)lookAtApp:(id)sender {
     [Flurry logEvent:@"Ad Clicked"];

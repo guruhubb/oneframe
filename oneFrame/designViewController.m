@@ -118,7 +118,9 @@
 {
     [super viewDidLoad];
     library = [designViewController defaultAssetsLibrary];
-    imageTemp =[UIImage imageWithCGImage:self.selectedImage.CGImage];
+    imageTemp=[UIImage imageWithCGImage:self.selectedImage.CGImage scale:[self.selectedImage scale] orientation:self.selectedImage.imageOrientation];
+    
+//    imageTemp =[UIImage imageWithCGImage:self.selectedImage.CGImage];
     CGRect frame = CGRectMake(0, 0, 125, 40);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];

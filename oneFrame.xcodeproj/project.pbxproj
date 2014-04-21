@@ -11,6 +11,7 @@
 		CC0A5A1819034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A1719034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png */; };
 		CC0A5A1E19034992001745F9 /* adViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5A1D19034992001745F9 /* adViewController.m */; };
 		CC0A5A3319055A21001745F9 /* more-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A3219055A21001745F9 /* more-512.png */; };
+		CC0A5A4619058EA6001745F9 /* glyphicons_197_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */; };
 		CC6C6527190093A800F7D53F /* designViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C6518190093A800F7D53F /* designViewController.m */; };
 		CC6C6528190093A800F7D53F /* doneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C651A190093A800F7D53F /* doneViewController.m */; };
 		CC6C6529190093A800F7D53F /* gridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C651C190093A800F7D53F /* gridViewController.m */; };
@@ -157,6 +158,7 @@
 		CC0A5A1C19034992001745F9 /* adViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adViewController.h; sourceTree = "<group>"; };
 		CC0A5A1D19034992001745F9 /* adViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = adViewController.m; sourceTree = "<group>"; };
 		CC0A5A3219055A21001745F9 /* more-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more-512.png"; sourceTree = "<group>"; };
+		CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_197_remove.png; sourceTree = "<group>"; };
 		CC6C6517190093A800F7D53F /* designViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = designViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CC6C6518190093A800F7D53F /* designViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = designViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC6C6519190093A800F7D53F /* doneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = doneViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -475,6 +477,7 @@
 				CC6C65D5190093DB00F7D53F /* facebook-70251b04a4be865178ab592bc9586c83.png */,
 				CC6C65D8190093DB00F7D53F /* glyphicons_019_heart_empty.png */,
 				CC0A5A3219055A21001745F9 /* more-512.png */,
+				CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */,
 				CC6C65D9190093DB00F7D53F /* glyphicons_136_cogwheel.png */,
 				CC6C65DA190093DB00F7D53F /* icon-letter-mail-hi.png */,
 				CC6C65DB190093DB00F7D53F /* instagram-512-2.png */,
@@ -575,8 +578,8 @@
 				CC0A5A1D19034992001745F9 /* adViewController.m */,
 				CCD28D6B18D9F027001127EC /* AppDelegate.h */,
 				CCD28D6C18D9F027001127EC /* AppDelegate.m */,
-				CCD28D7118D9F027001127EC /* ViewController.h */,
 				CC6C67D41900CABE00F7D53F /* MainStoryboard.storyboard */,
+				CCD28D7118D9F027001127EC /* ViewController.h */,
 				CCD28D7218D9F027001127EC /* ViewController.m */,
 				CC6C6517190093A800F7D53F /* designViewController.h */,
 				CC6C6518190093A800F7D53F /* designViewController.m */,
@@ -743,6 +746,7 @@
 				CC6C666C190093DC00F7D53F /* filter08.png in Resources */,
 				CC0A5A3319055A21001745F9 /* more-512.png in Resources */,
 				CC6C6685190093DC00F7D53F /* bleachNight.png in Resources */,
+				CC0A5A4619058EA6001745F9 /* glyphicons_197_remove.png in Resources */,
 				CC6C6666190093DC00F7D53F /* filter02.png in Resources */,
 				CC6C66A0190093DC00F7D53F /* sepiaSelenium2.png in Resources */,
 				CC6C6688190093DC00F7D53F /* BWhighContrastRed.png in Resources */,
