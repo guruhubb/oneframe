@@ -88,6 +88,10 @@
     CGFloat adjustedWidth4;
     CGFloat adjustedHeight4;
     
+    UIImage *imageTemp;
+    
+//    NSTimeInterval nowTime;
+//    NSTimeInterval startTime;
     
 //    GPUImageOutput<GPUImageInput> *filter;
     NSUserDefaults *defaults;
@@ -114,7 +118,7 @@
 {
     [super viewDidLoad];
     library = [designViewController defaultAssetsLibrary];
-
+    imageTemp =[UIImage imageWithCGImage:self.selectedImage.CGImage];
     CGRect frame = CGRectMake(0, 0, 125, 40);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
@@ -158,7 +162,7 @@
 //    btn.tag=1; 
 
     if (btn.tag==0 || btn.tag > 25+35) btn.tag = 1;
-//    [self frameClicked:btn];
+    [self frameClicked:btn];
     [self frameClicked:btn];
 //    if (![defaults boolForKey:kFeature0])
 //        btn.tag = 20;
@@ -1143,6 +1147,7 @@
                         }
                             break;
                     }
+            imageTemp=imageView.image;
 //            [filter prepareForImageCapture];
 //                    UIImage *quickFilteredImage = [filter imageByFilteringImage:inputImage];
 //                    imageView.image=quickFilteredImage;
@@ -1150,6 +1155,7 @@
             
                 }
             }
+        
         }
 //    }
 }
@@ -1514,13 +1520,20 @@
 //        for (UIImageView *imageView in blockSlider.subviews){
 //            [imageView removeFromSuperview];
 //        }
-        for (UIImageView *imageView in blockSlider1.subviews)
+    for (UIImageView *imageView in blockSlider1.subviews){
              [imageView removeFromSuperview];
-        image1 = [[UIImageView alloc] initWithImage:self.selectedImage];
+    }
+        image1 = [[UIImageView alloc] initWithImage:imageTemp];
         [blockSlider1 addSubview:image1];
         
             [self fitImageToScroll:image1 SCROLL:blockSlider1 scrollViewNumber:blockSlider1.tag angle:[defaults floatForKey:@"Rotate"]+sliderRotate.value];
-    [self reFilterImage:[defaults integerForKey:@"filter"] :image1];
+    
+//    nowTime =[[NSDate date] timeIntervalSince1970];
+//    if ((nowTime-startTime)> 1 ){
+//        NSLog(@"nowTime is %f",nowTime);
+//        startTime =[[NSDate date] timeIntervalSince1970];
+//    [self reFilterImage:[defaults integerForKey:@"filter"] :image1];
+//    }
 //    if (nSubStyle==1){
 //        CALayer *mask = [CALayer layer];
 //        mask.contents = (id)[[UIImage imageNamed:@"maskCircle.png"] CGImage];
@@ -1532,8 +1545,58 @@
 //        [blockSlider setContentOffset:CGPointMake(blockSlider.frame.origin.x, blockSlider.frame.origin.y) animated:NO];
 //    }
 }
-
+- (void) resizeFramesWithoutFilter {
+    
+    //    for (UIScrollView *blockSlider in droppableAreas){
+    blockSlider1.layer.mask=nil;
+    
+    //        if (blockSlider.tag == 0) {
+    rectBlockSlider1 = [self getScrollFrame1:nStyle subStyle:nSubStyle];
+    blockSlider1.frame = rectBlockSlider1;
+    //        }
+    //        else if (blockSlider.tag == 1) {
+    //            rectBlockSlider2 = [self getScrollFrame2:nStyle subStyle:nSubStyle];
+    //            blockSlider.frame = rectBlockSlider2;
+    //        }
+    //        else if (blockSlider.tag == 2) {
+    //            rectBlockSlider3 = [self getScrollFrame3:nStyle subStyle:nSubStyle];
+    //            blockSlider.frame = rectBlockSlider3;
+    //        }
+    //        else if (blockSlider.tag == 3) {
+    //            rectBlockSlider4 = [self getScrollFrame4:nStyle subStyle:nSubStyle];
+    //            blockSlider.frame = rectBlockSlider4;
+    //        }
+    //        for (UIImageView *imageView in blockSlider.subviews){
+    //            [imageView removeFromSuperview];
+    //        }
+    for (UIImageView *imageView in blockSlider1.subviews){
+        [imageView removeFromSuperview];
+    }
+    image1 = [[UIImageView alloc] initWithImage:self.selectedImage];
+    [blockSlider1 addSubview:image1];
+    
+    [self fitImageToScroll:image1 SCROLL:blockSlider1 scrollViewNumber:blockSlider1.tag angle:[defaults floatForKey:@"Rotate"]+sliderRotate.value];
+    
+    //    nowTime =[[NSDate date] timeIntervalSince1970];
+    //    if ((nowTime-startTime)> 1 ){
+    //        NSLog(@"nowTime is %f",nowTime);
+    //        startTime =[[NSDate date] timeIntervalSince1970];
+    [self reFilterImage:[defaults integerForKey:@"filter"] :image1];
+    //    }
+    //    if (nSubStyle==1){
+    //        CALayer *mask = [CALayer layer];
+    //        mask.contents = (id)[[UIImage imageNamed:@"maskCircle.png"] CGImage];
+    //        mask.frame = CGRectMake(155-50/2-nMargin*6, 155-50/2-nMargin*6, 50+nMargin*12, 50+nMargin*12 );
+    //        blockSlider1.layer.mask=mask;
+    //    }
+    
+    
+    //        [blockSlider setContentOffset:CGPointMake(blockSlider.frame.origin.x, blockSlider.frame.origin.y) animated:NO];
+    //    }
+}
 - (void) reFilterImage : (NSInteger) tag : (UIImageView *) imageView{
+   
+     @autoreleasepool {
     UIImage *inputImage = self.selectedImage;
     switch (tag) {
         case 1:{
@@ -1638,6 +1701,7 @@
         }
             break;
     }
+     }
 }
 
 - (IBAction)handlePinchImage:(UIPinchGestureRecognizer *)sender {
@@ -4955,6 +5019,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    sleep(1);
     // Dispose of any resources that can be recreated.
 }
 
