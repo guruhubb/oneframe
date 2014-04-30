@@ -12,6 +12,7 @@
 		CC0A5A1E19034992001745F9 /* adViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5A1D19034992001745F9 /* adViewController.m */; };
 		CC0A5A3319055A21001745F9 /* more-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A3219055A21001745F9 /* more-512.png */; };
 		CC0A5A4619058EA6001745F9 /* glyphicons_197_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */; };
+		CC2766D1190EAEA500D132A1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2766D0190EAEA500D132A1 /* AdSupport.framework */; };
 		CC6C6527190093A800F7D53F /* designViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C6518190093A800F7D53F /* designViewController.m */; };
 		CC6C6528190093A800F7D53F /* doneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C651A190093A800F7D53F /* doneViewController.m */; };
 		CC6C6529190093A800F7D53F /* gridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C651C190093A800F7D53F /* gridViewController.m */; };
@@ -79,11 +80,8 @@
 		CC6C66F2190093DC00F7D53F /* instagram-512-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6C65DB190093DB00F7D53F /* instagram-512-2.png */; };
 		CC6C66F3190093DC00F7D53F /* lockImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6C65DC190093DB00F7D53F /* lockImage.png */; };
 		CC6C66F6190093DC00F7D53F /* twitter_logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6C65DF190093DB00F7D53F /* twitter_logo_white.png */; };
-		CC6C67701900971300F7D53F /* TapjoyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC6C676E1900971300F7D53F /* TapjoyResources.bundle */; };
-		CC6C67711900971300F7D53F /* Tapjoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6C676F1900971300F7D53F /* Tapjoy.framework */; };
 		CC6C67841900A39C00F7D53F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6C67831900A39C00F7D53F /* CoreData.framework */; };
 		CC6C67861900A3A600F7D53F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6C67851900A3A600F7D53F /* Twitter.framework */; };
-		CC6C67881900A3BB00F7D53F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6C67871900A3BB00F7D53F /* AdSupport.framework */; };
 		CC6C678A1900A3C900F7D53F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6C67891900A3C900F7D53F /* MobileCoreServices.framework */; };
 		CC6C678C1900A3D100F7D53F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6C678B1900A3D100F7D53F /* MediaPlayer.framework */; };
 		CC6C678E1900A3D900F7D53F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6C678D1900A3D900F7D53F /* MapKit.framework */; };
@@ -159,6 +157,7 @@
 		CC0A5A1D19034992001745F9 /* adViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = adViewController.m; sourceTree = "<group>"; };
 		CC0A5A3219055A21001745F9 /* more-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more-512.png"; sourceTree = "<group>"; };
 		CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_197_remove.png; sourceTree = "<group>"; };
+		CC2766D0190EAEA500D132A1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CC6C6517190093A800F7D53F /* designViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = designViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CC6C6518190093A800F7D53F /* designViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = designViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC6C6519190093A800F7D53F /* doneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = doneViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -242,11 +241,8 @@
 		CC6C65DB190093DB00F7D53F /* instagram-512-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instagram-512-2.png"; sourceTree = "<group>"; };
 		CC6C65DC190093DB00F7D53F /* lockImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockImage.png; sourceTree = "<group>"; };
 		CC6C65DF190093DB00F7D53F /* twitter_logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_logo_white.png; sourceTree = "<group>"; };
-		CC6C676E1900971300F7D53F /* TapjoyResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapjoyResources.bundle; sourceTree = "<group>"; };
-		CC6C676F1900971300F7D53F /* Tapjoy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Tapjoy.framework; sourceTree = "<group>"; };
 		CC6C67831900A39C00F7D53F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CC6C67851900A3A600F7D53F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
-		CC6C67871900A3BB00F7D53F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CC6C67891900A3C900F7D53F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CC6C678B1900A3D100F7D53F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CC6C678D1900A3D900F7D53F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -294,8 +290,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2766D1190EAEA500D132A1 /* AdSupport.framework in Frameworks */,
 				CC6C67AF1900A4C200F7D53F /* AssetsLibrary.framework in Frameworks */,
-				CC6C67881900A3BB00F7D53F /* AdSupport.framework in Frameworks */,
 				CC6C67A31900A48D00F7D53F /* CoreLocation.framework in Frameworks */,
 				CC6C67A41900A48D00F7D53F /* CoreMedia.framework in Frameworks */,
 				CC6C67A51900A48D00F7D53F /* CoreMotion.framework in Frameworks */,
@@ -318,7 +314,6 @@
 				CC6C67B01900A4C200F7D53F /* Social.framework in Frameworks */,
 				CC6C67861900A3A600F7D53F /* Twitter.framework in Frameworks */,
 				CC6C67D11900AC2000F7D53F /* libGPUImage.a in Frameworks */,
-				CC6C67711900971300F7D53F /* Tapjoy.framework in Frameworks */,
 				CC6C67AA1900A48D00F7D53F /* Security.framework in Frameworks */,
 				CC6C67AB1900A48D00F7D53F /* StoreKit.framework in Frameworks */,
 				CC6C67AC1900A48D00F7D53F /* SystemConfiguration.framework in Frameworks */,
@@ -487,24 +482,6 @@
 			path = icons;
 			sourceTree = "<group>";
 		};
-		CC6C676C1900971300F7D53F /* Tapjoy.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				CC6C676D1900971300F7D53F /* Resources */,
-				CC6C676F1900971300F7D53F /* Tapjoy.framework */,
-			);
-			name = Tapjoy.embeddedframework;
-			path = "TapjoySDK_iOS_v10.0-2.0/Libraries/Tapjoy.embeddedframework";
-			sourceTree = "<group>";
-		};
-		CC6C676D1900971300F7D53F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CC6C676E1900971300F7D53F /* TapjoyResources.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		CC6C67C81900AC0F00F7D53F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,7 +494,6 @@
 		CCD28D5018D9F027001127EC = {
 			isa = PBXGroup;
 			children = (
-				CC6C676C1900971300F7D53F /* Tapjoy.embeddedframework */,
 				CC6C652F190093DB00F7D53F /* Flurry */,
 				CC6C6532190093DB00F7D53F /* MKStoreKit-master */,
 				CC6C6549190093DB00F7D53F /* Resources */,
@@ -540,11 +516,13 @@
 		CCD28D5B18D9F027001127EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC2766D0190EAEA500D132A1 /* AdSupport.framework */,
 				CC6C67AD1900A4C200F7D53F /* AssetsLibrary.framework */,
 				CC6C67AE1900A4C200F7D53F /* Social.framework */,
 				CC6C67991900A48D00F7D53F /* CoreLocation.framework */,
 				CC6C679A1900A48D00F7D53F /* CoreMedia.framework */,
 				CC6C679B1900A48D00F7D53F /* CoreMotion.framework */,
+				CC6C67831900A39C00F7D53F /* CoreData.framework */,
 				CC6C679C1900A48D00F7D53F /* CoreTelephony.framework */,
 				CC6C679D1900A48D00F7D53F /* MessageUI.framework */,
 				CC6C679E1900A48D00F7D53F /* OpenGLES.framework */,
@@ -560,9 +538,7 @@
 				CC6C678D1900A3D900F7D53F /* MapKit.framework */,
 				CC6C678B1900A3D100F7D53F /* MediaPlayer.framework */,
 				CC6C67891900A3C900F7D53F /* MobileCoreServices.framework */,
-				CC6C67871900A3BB00F7D53F /* AdSupport.framework */,
 				CC6C67851900A3A600F7D53F /* Twitter.framework */,
-				CC6C67831900A39C00F7D53F /* CoreData.framework */,
 				CCD28D5C18D9F027001127EC /* Foundation.framework */,
 				CCD28D5E18D9F027001127EC /* CoreGraphics.framework */,
 				CCD28D6018D9F027001127EC /* UIKit.framework */,
@@ -740,7 +716,6 @@
 				CC6C66C4190093DC00F7D53F /* secondFrame06.png in Resources */,
 				CC6C66C1190093DC00F7D53F /* secondFrame03.png in Resources */,
 				CC6C6660190093DC00F7D53F /* DBSetup.sql in Resources */,
-				CC6C67701900971300F7D53F /* TapjoyResources.bundle in Resources */,
 				CCD28D7518D9F027001127EC /* Images.xcassets in Resources */,
 				CC6C6680190093DC00F7D53F /* 2strip.png in Resources */,
 				CC6C666C190093DC00F7D53F /* filter08.png in Resources */,

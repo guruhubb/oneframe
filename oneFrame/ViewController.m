@@ -55,19 +55,19 @@
         [self rateApp];
     }
     else if (buttonIndex == 2 ){
-        [defaults setBool:YES forKey:@"rateDone"];
-           NSLog(@"rateDone is %d",[defaults boolForKey:@"rateDone"]);
+        [defaults setBool:YES forKey:@"rateDoneOneFrame"];
+           NSLog(@"rateDone is %d",[defaults boolForKey:@"rateDoneOneFrame"]);
     }
     else {
-        [defaults setBool:NO forKey:@"showSurvey"];
-        [defaults setInteger:0 forKey:@"counter" ];
-           NSLog(@"showSurvey is %d and counter is %d",[defaults boolForKey:@"showSurvey"],[defaults integerForKey:@"counter"]);
+        [defaults setBool:NO forKey:@"showSurveyOneFrame"];
+        [defaults setInteger:0 forKey:@"counterOneFrame" ];
+           NSLog(@"showSurvey is %d and counter is %d",[defaults boolForKey:@"showSurveyOneFrame"],[defaults integerForKey:@"counterOneFrame"]);
     }
     [defaults synchronize];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     _assets = [@[] mutableCopy];
     __block NSMutableArray *tmpAssets = [@[] mutableCopy];
     ALAssetsLibrary *assetsLibrary = [ViewController defaultAssetsLibrary];
@@ -84,8 +84,8 @@
     } failureBlock:^(NSError *error) {
         NSLog(@"Error loading images %@", error);
     }];
-    NSLog(@"showSurvey is %d and rateDone is %d",[defaults boolForKey:@"showSurvey"],[defaults boolForKey:@"rateDone"]);
-    if ([defaults boolForKey:@"showSurvey"]&&![defaults boolForKey:@"rateDone"])
+    NSLog(@"showSurvey is %d and rateDone is %d",[defaults boolForKey:@"showSurveyOneFrame"],[defaults boolForKey:@"rateDoneOneFrame"]);
+    if ([defaults boolForKey:@"showSurveyOneFrame"]&&![defaults boolForKey:@"rateDoneOneFrame"])
         [self performSelector:@selector(showSurvey) withObject:nil afterDelay:0.1];
     
     static dispatch_once_t pred;
@@ -162,7 +162,7 @@
 - (void)rateApp {
     
     [Flurry logEvent:@"Rate App" ];
-    [defaults setBool:YES forKey:@"rateDone"];
+    [defaults setBool:YES forKey:@"rateDoneOneFrame"];
 //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/850204569"]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=866641636&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
     return;

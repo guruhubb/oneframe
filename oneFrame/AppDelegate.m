@@ -19,8 +19,8 @@
     [Flurry startSession:@" KQQ83V4SXWGQ6RMMSZBJ"];
     
     
-	[Tapjoy requestTapjoyConnect:@"cd59eaf2-03cc-4281-bde5-097cf77d4fb8"
-					   secretKey:@"LXEMsdurBKZdub6vA7OA" options:@{ TJC_OPTION_ENABLE_LOGGING : @(YES) }];
+//	[Tapjoy requestTapjoyConnect:@"cd59eaf2-03cc-4281-bde5-097cf77d4fb8"
+//					   secretKey:@"LXEMsdurBKZdub6vA7OA" options:@{ TJC_OPTION_ENABLE_LOGGING : @(YES) }];
     
  
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];  //text color on nav bar
@@ -100,18 +100,18 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    NSInteger counter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counter" ];
+    NSInteger counter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counterOneFrame" ];
     counter++;
     NSLog(@"counter is %d",counter);
 
     if (counter>4){
         NSLog(@"counter is %d",counter);
 
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showSurvey"];
-        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"counter" ];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showSurveyOneFrame"];
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"counterOneFrame" ];
         counter = 0;
     }
-    [[NSUserDefaults standardUserDefaults] setInteger:counter forKey:@"counter" ];
+    [[NSUserDefaults standardUserDefaults] setInteger:counter forKey:@"counterOneFrame" ];
     
    
 }
