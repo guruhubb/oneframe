@@ -43,7 +43,7 @@
 - (IBAction)lookAtApp:(id)sender {
     [Flurry logEvent:@"Ad Clicked"];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"splitagram"];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=850204569&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=869802697&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
     return;
 }
 

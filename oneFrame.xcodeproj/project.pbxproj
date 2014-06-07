@@ -12,6 +12,8 @@
 		CC0A5A1E19034992001745F9 /* adViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5A1D19034992001745F9 /* adViewController.m */; };
 		CC0A5A3319055A21001745F9 /* more-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A3219055A21001745F9 /* more-512.png */; };
 		CC0A5A4619058EA6001745F9 /* glyphicons_197_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */; };
+		CC17B64D1942A92800B33CCF /* anonogram 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CC17B64B1942A92800B33CCF /* anonogram 1024x1024.png */; };
+		CC17B64E1942A92800B33CCF /* iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CC17B64C1942A92800B33CCF /* iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png */; };
 		CC2766D1190EAEA500D132A1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2766D0190EAEA500D132A1 /* AdSupport.framework */; };
 		CC6C6527190093A800F7D53F /* designViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C6518190093A800F7D53F /* designViewController.m */; };
 		CC6C6528190093A800F7D53F /* doneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6C651A190093A800F7D53F /* doneViewController.m */; };
@@ -157,6 +159,8 @@
 		CC0A5A1D19034992001745F9 /* adViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = adViewController.m; sourceTree = "<group>"; };
 		CC0A5A3219055A21001745F9 /* more-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more-512.png"; sourceTree = "<group>"; };
 		CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_197_remove.png; sourceTree = "<group>"; };
+		CC17B64B1942A92800B33CCF /* anonogram 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "anonogram 1024x1024.png"; path = "ad images/anonogram 1024x1024.png"; sourceTree = "<group>"; };
+		CC17B64C1942A92800B33CCF /* iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png"; path = "ad images/iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png"; sourceTree = "<group>"; };
 		CC2766D0190EAEA500D132A1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CC6C6517190093A800F7D53F /* designViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = designViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CC6C6518190093A800F7D53F /* designViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = designViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -339,6 +343,8 @@
 			children = (
 				CC0A5A1719034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png */,
 				CC0A5A14190346EB001745F9 /* splitagram icon 1024.png */,
+				CC17B64B1942A92800B33CCF /* anonogram 1024x1024.png */,
+				CC17B64C1942A92800B33CCF /* iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png */,
 			);
 			name = "ad images";
 			sourceTree = "<group>";
@@ -710,6 +716,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC6C669B190093DC00F7D53F /* lookup_amatorka.png in Resources */,
+				CC17B64E1942A92800B33CCF /* iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png in Resources */,
 				CC6C6661190093DC00F7D53F /* featureCheck.php in Resources */,
 				CC6C66EC190093DC00F7D53F /* facebook-70251b04a4be865178ab592bc9586c83.png in Resources */,
 				CC6C66AB190093DC00F7D53F /* Frame06a.png in Resources */,
@@ -751,6 +758,7 @@
 				CC6C666A190093DC00F7D53F /* filter06.png in Resources */,
 				CC6C66F1190093DC00F7D53F /* icon-letter-mail-hi.png in Resources */,
 				CC6C66F2190093DC00F7D53F /* instagram-512-2.png in Resources */,
+				CC17B64D1942A92800B33CCF /* anonogram 1024x1024.png in Resources */,
 				CC6C669C190093DC00F7D53F /* lookup_miss_etikate.png in Resources */,
 				CC0A5A1819034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png in Resources */,
 				CC6C66A7190093DC00F7D53F /* Frame03.png in Resources */,
