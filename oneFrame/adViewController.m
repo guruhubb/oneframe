@@ -31,7 +31,7 @@
     label.font = [UIFont systemFontOfSize:18.0];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = @"APPS  WE  LIKE";
+    label.text = @"OUR LATEST APP";
     self.navigationItem.titleView = label;
 	// Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"glyphicons_197_remove.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
@@ -43,7 +43,7 @@
 - (IBAction)lookAtApp:(id)sender {
     [Flurry logEvent:@"Ad Clicked"];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"splitagram"];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=869802697&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=850204569&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
     return;
 }
 

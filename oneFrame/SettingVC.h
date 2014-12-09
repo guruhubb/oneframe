@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMailComposeViewController.h>
-#import "MKStoreManager.h"
+#import "MKStoreKit.h"
+#import <StoreKit/StoreKit.h>
 
 
 @class HackbookAppDelegate;

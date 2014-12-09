@@ -51,7 +51,7 @@
 
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"buttonIndex is %d",buttonIndex);
+    NSLog(@"buttonIndex is %d",(int)buttonIndex);
     if (buttonIndex == 1) {
         [self rateApp];
     }
@@ -62,7 +62,7 @@
     else {
         [defaults setBool:NO forKey:@"showSurveyOneFrame"];
         [defaults setInteger:0 forKey:@"counterOneFrame" ];
-           NSLog(@"showSurvey is %d and counter is %d",[defaults boolForKey:@"showSurveyOneFrame"],[defaults integerForKey:@"counterOneFrame"]);
+           NSLog(@"showSurvey is %d and counter is %d",(int)[defaults boolForKey:@"showSurveyOneFrame"],(int)[defaults integerForKey:@"counterOneFrame"]);
     }
     [defaults synchronize];
 }
@@ -206,7 +206,7 @@ static void releaseAssetCallback(void *info) {
     
     CGImageRef imageRef = CGImageSourceCreateThumbnailAtIndex(source, 0, (__bridge CFDictionaryRef) @{
                                                                                                       (NSString *)kCGImageSourceCreateThumbnailFromImageAlways : @YES,
-                                                                                                      (NSString *)kCGImageSourceThumbnailMaxPixelSize : [NSNumber numberWithInt:size],
+                                                                                                      (NSString *)kCGImageSourceThumbnailMaxPixelSize : [NSNumber numberWithInt:(int)size],
                                                                                                       (NSString *)kCGImageSourceCreateThumbnailWithTransform : @YES,
                                                                                                       });
     CFRelease(source);

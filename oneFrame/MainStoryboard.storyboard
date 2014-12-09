@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vcY-a8-Sft">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vcY-a8-Sft">
     <dependencies>
-        <deployment version="1792" defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment version="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller - One Frame-->
+        <!--One Frame-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
@@ -308,7 +308,7 @@
             </objects>
             <point key="canvasLocation" x="1477" y="374"/>
         </scene>
-        <!--Grid View Controller -  -->
+        <!-- -->
         <scene sceneID="5qN-4i-k9E">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="GAH-FH-yWc" customClass="gridViewController" sceneMemberID="viewController">
@@ -454,7 +454,7 @@
             </objects>
             <point key="canvasLocation" x="2242" y="-286"/>
         </scene>
-        <!--Share View Controller -  -->
+        <!-- -->
         <scene sceneID="QQw-aE-HoL">
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" id="kG5-Sn-7m9" customClass="shareViewController" sceneMemberID="viewController">
@@ -587,25 +587,25 @@
                                     <action selector="lookAtApp:" destination="Xxw-wP-0sI" eventType="touchUpInside" id="p4r-nj-sVp"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anonogram 1024x1024.png" id="dG6-Rt-BcT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splitagram icon 1024.png" id="dG6-Rt-BcT">
                                 <rect key="frame" x="20" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anonogram" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lzz-d3-GRU">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Splitagram" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lzz-d3-GRU">
                                 <rect key="frame" x="152" y="37" width="148" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Freely share your thoughts, issues, and experiences.  Truly Anonymous." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eYG-2M-qCO">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instantly pop your photo with contrasting FREE filters and shapes." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eYG-2M-qCO">
                                 <rect key="frame" x="13" y="73" width="301" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png" id="juM-vg-w78">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png" id="juM-vg-w78">
                                 <rect key="frame" x="70" y="150" width="180" height="270"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -618,7 +618,7 @@
             </objects>
             <point key="canvasLocation" x="3170" y="1086"/>
         </scene>
-        <!--SettingVC - Settings-->
+        <!--Settings-->
         <scene sceneID="tyN-0T-aus">
             <objects>
                 <tableViewController title="Settings" id="bke-37-HPC" customClass="SettingVC" sceneMemberID="viewController">
@@ -626,16 +626,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4ap-9d-BYd">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4ap-9d-BYd" id="M4H-Oa-i2E">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="bke-37-HPC" id="CeZ-DZ-cPe"/>
@@ -720,15 +710,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="anonogram 1024x1024.png" width="1024" height="1024"/>
         <image name="comments-icon-614x460.png" width="614" height="460"/>
         <image name="facebook-70251b04a4be865178ab592bc9586c83.png" width="500" height="500"/>
         <image name="glyphicons_019_heart_empty.png" width="24" height="22"/>
         <image name="glyphicons_136_cogwheel.png" width="24" height="24"/>
-        <image name="iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png" width="640" height="960"/>
+        <image name="iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png" width="640" height="960"/>
         <image name="icon-letter-mail-hi.png" width="600" height="429"/>
         <image name="instagram-512-2.png" width="512" height="512"/>
         <image name="more-512.png" width="512" height="512"/>
+        <image name="splitagram icon 1024.png" width="1024" height="1024"/>
         <image name="twitter_logo_white.png" width="432" height="297"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -737,6 +727,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sEh-P0-uOH"/>
+        <segue reference="ohc-R9-RMT"/>
     </inferredMetricsTieBreakers>
 </document>
