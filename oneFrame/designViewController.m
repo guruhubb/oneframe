@@ -21,7 +21,7 @@
 #import "doneViewController.h"
 #import "GPUImage.h"
 #import "Flurry.h"
-#import "MKStoreKit.h"
+#import "MKStoreManager.h"
 
 
 @interface designViewController (){
@@ -300,40 +300,40 @@
     
     NSLog(@"buying...");
     
-    //    [[MKStoreManager sharedManager] buyFeature:kFeature2
-    //                                    onComplete:^(NSString* purchasedFeature,
-    //                                                 NSData* purchasedReceipt,
-    //                                                 NSArray* availableDownloads)
-    //     {
-    //         NSLog(@"Purchased: %@, available downloads is %@ watermark ", purchasedFeature, availableDownloads );
-    //
-    //
-    //         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
-    //                                                        delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    //         [defaults setBool:YES  forKey:kFeature2];
-    //         [alert show];
-    //         [self updateAppViewAndDefaults];
-    //
-    //     }
-    //                                   onCancelled:^
-    //     {
-    //         NSLog(@"User Cancelled Transaction");
-    //     }];
-    [[MKStoreKit sharedKit] initiatePaymentRequestForProductWithIdentifier:kFeature2];
-    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchasedNotification
-                                                      object:nil
-                                                       queue:[[NSOperationQueue alloc] init]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      
-                                                      NSLog(@"Purchased/Subscribed to product with id: %@", [note object]);
-                                                      
-                                                      NSLog(@"%@", [[MKStoreKit sharedKit] valueForKey:@"purchaseRecord"]);
-                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
-                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                                                      [defaults setBool:YES  forKey:kFeature2];
-                                                      [alert show];
-                                                      [self updateAppViewAndDefaults];
-                                                  }];
+        [[MKStoreManager sharedManager] buyFeature:kFeature2
+                                        onComplete:^(NSString* purchasedFeature,
+                                                     NSData* purchasedReceipt,
+                                                     NSArray* availableDownloads)
+         {
+             NSLog(@"Purchased: %@, available downloads is %@ watermark ", purchasedFeature, availableDownloads );
+    
+    
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
+                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+             [defaults setBool:YES  forKey:kFeature2];
+             [alert show];
+             [self updateAppViewAndDefaults];
+    
+         }
+                                       onCancelled:^
+         {
+             NSLog(@"User Cancelled Transaction");
+         }];
+//    [[MKStoreKit sharedKit] initiatePaymentRequestForProductWithIdentifier:kFeature2];
+//    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchasedNotification
+//                                                      object:nil
+//                                                       queue:[[NSOperationQueue alloc] init]
+//                                                  usingBlock:^(NSNotification *note) {
+//                                                      
+//                                                      NSLog(@"Purchased/Subscribed to product with id: %@", [note object]);
+//                                                      
+//                                                      NSLog(@"%@", [[MKStoreKit sharedKit] valueForKey:@"purchaseRecord"]);
+//                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
+//                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//                                                      [defaults setBool:YES  forKey:kFeature2];
+//                                                      [alert show];
+//                                                      [self updateAppViewAndDefaults];
+//                                                  }];
     
     
     

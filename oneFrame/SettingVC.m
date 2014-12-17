@@ -409,40 +409,40 @@
     
     NSLog(@"buying...");
     
-    //    [[MKStoreManager sharedManager] buyFeature:kFeature2
-    //                                    onComplete:^(NSString* purchasedFeature,
-    //                                                 NSData* purchasedReceipt,
-    //                                                 NSArray* availableDownloads)
-    //     {
-    //         NSLog(@"Purchased: %@, available downloads is %@ watermark ", purchasedFeature, availableDownloads );
-    //
-    //
-    //         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
-    //                                                        delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    //         [defaults setBool:YES  forKey:kFeature2];
-    //         [alert show];
-    //         [self updateAppViewAndDefaults];
-    //
-    //     }
-    //                                   onCancelled:^
-    //     {
-    //         NSLog(@"User Cancelled Transaction");
-    //     }];
-    [[MKStoreKit sharedKit] initiatePaymentRequestForProductWithIdentifier:kFeature2];
-    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchasedNotification
-                                                      object:nil
-                                                       queue:[[NSOperationQueue alloc] init]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      
-                                                      NSLog(@"Purchased/Subscribed to product with id: %@", [note object]);
-                                                      
-                                                      NSLog(@"%@", [[MKStoreKit sharedKit] valueForKey:@"purchaseRecord"]);
-                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
-                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                                                      [defaults setBool:YES  forKey:kFeature2];
-                                                      [alert show];
-                                                      [self updateAppViewAndDefaults];
-                                                  }];
+        [[MKStoreManager sharedManager] buyFeature:kFeature2
+                                        onComplete:^(NSString* purchasedFeature,
+                                                     NSData* purchasedReceipt,
+                                                     NSArray* availableDownloads)
+         {
+             NSLog(@"Purchased: %@, available downloads is %@ watermark ", purchasedFeature, availableDownloads );
+    
+    
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
+                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+             [defaults setBool:YES  forKey:kFeature2];
+             [alert show];
+             [self updateAppViewAndDefaults];
+    
+         }
+                                       onCancelled:^
+         {
+             NSLog(@"User Cancelled Transaction");
+         }];
+//    [[MKStoreKit sharedKit] initiatePaymentRequestForProductWithIdentifier:kFeature2];
+//    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchasedNotification
+//                                                      object:nil
+//                                                       queue:[[NSOperationQueue alloc] init]
+//                                                  usingBlock:^(NSNotification *note) {
+//                                                      
+//                                                      NSLog(@"Purchased/Subscribed to product with id: %@", [note object]);
+//                                                      
+//                                                      NSLog(@"%@", [[MKStoreKit sharedKit] valueForKey:@"purchaseRecord"]);
+//                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
+//                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//                                                      [defaults setBool:YES  forKey:kFeature2];
+//                                                      [alert show];
+//                                                      [self updateAppViewAndDefaults];
+//                                                  }];
     
     
     
@@ -455,37 +455,37 @@
         [alert show];
         return;
     }
-    //        [[MKStoreManager sharedManager]restorePreviousTransactionsOnComplete:^{
-    //            NSLog(@"RESTORED PREVIOUS PURCHASE");
-    //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Restore Successful" message:nil
-    //                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    //            [alert show];
-    //            [self updateAppViewAndDefaults];
-    //            [defaults setBool:YES forKey:@"restorePurchases"];
-    //        } onError:nil];
-    [[MKStoreKit sharedKit] restorePurchases];
+            [[MKStoreManager sharedManager]restorePreviousTransactionsOnComplete:^{
+                NSLog(@"RESTORED PREVIOUS PURCHASE");
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Restore Successful" message:nil
+                                                               delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alert show];
+                [self updateAppViewAndDefaults];
+                [defaults setBool:YES forKey:@"restorePurchases"];
+            } onError:nil];
+//    [[MKStoreKit sharedKit] restorePurchases];
     
 }
-//- (void) updateAppViewAndDefaults {
-////    if ([MKStoreManager isFeaturePurchased:kFeature0])
-////        [defaults setBool:YES forKey:kFeature0];
-////    else
-////        [defaults setBool:NO forKey:kFeature0];
-////    
-////    if([MKStoreManager isFeaturePurchased:kFeature1])
-////        [defaults setBool:YES forKey:kFeature1];
-////    else
-////        [defaults setBool:NO forKey:kFeature1];
-//    
-//    if([MKStoreManager isFeaturePurchased:kFeature2])
-//        [defaults setBool:YES forKey:kFeature2];
-//    else
-//        [defaults setBool:NO forKey:kFeature2];
-//    
-// }
-
 - (void) updateAppViewAndDefaults {
+//    if ([MKStoreManager isFeaturePurchased:kFeature0])
+//        [defaults setBool:YES forKey:kFeature0];
+//    else
+//        [defaults setBool:NO forKey:kFeature0];
+//    
+//    if([MKStoreManager isFeaturePurchased:kFeature1])
+//        [defaults setBool:YES forKey:kFeature1];
+//    else
+//        [defaults setBool:NO forKey:kFeature1];
     
+    if([MKStoreManager isFeaturePurchased:kFeature2])
+        [defaults setBool:YES forKey:kFeature2];
+    else
+        [defaults setBool:NO forKey:kFeature2];
+    
+ }
+
+//- (void) updateAppViewAndDefaults {
+
 //    if ([[MKStoreKit sharedKit] isProductPurchased:kFeature0])
 //        [defaults setBool:YES forKey:kFeature0];
 //    else
@@ -496,11 +496,11 @@
 //    else
 //        [defaults setBool:NO forKey:kFeature1];
     
-    if([[MKStoreKit sharedKit] isProductPurchased:kFeature2])
-        [defaults setBool:YES forKey:kFeature2];
-    else
-        [defaults setBool:NO forKey:kFeature2];
-}
+//    if([[MKStoreKit sharedKit] isProductPurchased:kFeature2])
+//        [defaults setBool:YES forKey:kFeature2];
+//    else
+//        [defaults setBool:NO forKey:kFeature2];
+//}
 
 
 -(void)frameActionSettings

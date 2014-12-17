@@ -14,7 +14,16 @@
 		CC0A5A4619058EA6001745F9 /* glyphicons_197_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */; };
 		CC17B64D1942A92800B33CCF /* anonogram 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CC17B64B1942A92800B33CCF /* anonogram 1024x1024.png */; };
 		CC17B64E1942A92800B33CCF /* iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CC17B64C1942A92800B33CCF /* iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png */; };
+		CC2489CB1A416E2C00302B8C /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2489BF1A416E2C00302B8C /* NSData+MKBase64.m */; };
+		CC2489CC1A416E2C00302B8C /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2489C11A416E2C00302B8C /* SFHFKeychainUtils.m */; };
+		CC2489CD1A416E2C00302B8C /* MKSKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2489C31A416E2C00302B8C /* MKSKConfig.m */; };
+		CC2489CE1A416E2C00302B8C /* MKSKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2489C51A416E2C00302B8C /* MKSKProduct.m */; };
+		CC2489CF1A416E2C00302B8C /* MKSKSubscriptionProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2489C71A416E2C00302B8C /* MKSKSubscriptionProduct.m */; };
+		CC2489D01A416E2C00302B8C /* MKStoreKitConfigs.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2489C81A416E2C00302B8C /* MKStoreKitConfigs.plist */; };
+		CC2489D11A416E2C00302B8C /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2489CA1A416E2C00302B8C /* MKStoreManager.m */; };
 		CC2766D1190EAEA500D132A1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2766D0190EAEA500D132A1 /* AdSupport.framework */; };
+		CC41E97B1A41E410003E0569 /* iOS Simulator Screen Shot Dec 15, 2014, 1.02.06 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = CC41E9791A41E410003E0569 /* iOS Simulator Screen Shot Dec 15, 2014, 1.02.06 AM.png */; };
+		CC41E97C1A41E410003E0569 /* stripes 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CC41E97A1A41E410003E0569 /* stripes 1024x1024.png */; };
 		CC45AB7C1A36C975004753C5 /* MKStoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CC45AB791A36C975004753C5 /* MKStoreKit.m */; };
 		CC45AB811A36C980004753C5 /* libFlurry_5.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC45AB801A36C980004753C5 /* libFlurry_5.4.0.a */; };
 		CC45ABA01A36D781004753C5 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC45AB9B1A36D643004753C5 /* libGPUImage.a */; };
@@ -149,7 +158,22 @@
 		CC0A5A4519058EA6001745F9 /* glyphicons_197_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_197_remove.png; sourceTree = "<group>"; };
 		CC17B64B1942A92800B33CCF /* anonogram 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "anonogram 1024x1024.png"; path = "ad images/anonogram 1024x1024.png"; sourceTree = "<group>"; };
 		CC17B64C1942A92800B33CCF /* iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png"; path = "ad images/iOS Simulator Screen shot May 25, 2014, 12.14.00 PM.png"; sourceTree = "<group>"; };
+		CC2489BE1A416E2C00302B8C /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
+		CC2489BF1A416E2C00302B8C /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
+		CC2489C01A416E2C00302B8C /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		CC2489C11A416E2C00302B8C /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		CC2489C21A416E2C00302B8C /* MKSKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKSKConfig.h; path = "MKStoreKit-master-4/MKSKConfig.h"; sourceTree = SOURCE_ROOT; };
+		CC2489C31A416E2C00302B8C /* MKSKConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKSKConfig.m; path = "MKStoreKit-master-4/MKSKConfig.m"; sourceTree = SOURCE_ROOT; };
+		CC2489C41A416E2C00302B8C /* MKSKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKSKProduct.h; path = "MKStoreKit-master-4/MKSKProduct.h"; sourceTree = SOURCE_ROOT; };
+		CC2489C51A416E2C00302B8C /* MKSKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKSKProduct.m; path = "MKStoreKit-master-4/MKSKProduct.m"; sourceTree = SOURCE_ROOT; };
+		CC2489C61A416E2C00302B8C /* MKSKSubscriptionProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKSKSubscriptionProduct.h; path = "MKStoreKit-master-4/MKSKSubscriptionProduct.h"; sourceTree = SOURCE_ROOT; };
+		CC2489C71A416E2C00302B8C /* MKSKSubscriptionProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKSKSubscriptionProduct.m; path = "MKStoreKit-master-4/MKSKSubscriptionProduct.m"; sourceTree = SOURCE_ROOT; };
+		CC2489C81A416E2C00302B8C /* MKStoreKitConfigs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MKStoreKitConfigs.plist; path = "MKStoreKit-master-4/MKStoreKitConfigs.plist"; sourceTree = SOURCE_ROOT; };
+		CC2489C91A416E2C00302B8C /* MKStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKStoreManager.h; path = "MKStoreKit-master-4/MKStoreManager.h"; sourceTree = SOURCE_ROOT; };
+		CC2489CA1A416E2C00302B8C /* MKStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKStoreManager.m; path = "MKStoreKit-master-4/MKStoreManager.m"; sourceTree = SOURCE_ROOT; };
 		CC2766D0190EAEA500D132A1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CC41E9791A41E410003E0569 /* iOS Simulator Screen Shot Dec 15, 2014, 1.02.06 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen Shot Dec 15, 2014, 1.02.06 AM.png"; path = "ad images/iOS Simulator Screen Shot Dec 15, 2014, 1.02.06 AM.png"; sourceTree = "<group>"; };
+		CC41E97A1A41E410003E0569 /* stripes 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stripes 1024x1024.png"; path = "ad images/stripes 1024x1024.png"; sourceTree = "<group>"; };
 		CC45AB781A36C975004753C5 /* MKStoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreKit.h; sourceTree = "<group>"; };
 		CC45AB791A36C975004753C5 /* MKStoreKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreKit.m; sourceTree = "<group>"; };
 		CC45AB7A1A36C975004753C5 /* MKStoreKitConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreKitConfigs.h; sourceTree = "<group>"; };
@@ -312,6 +336,8 @@
 		CC0A5A1219034642001745F9 /* ad images */ = {
 			isa = PBXGroup;
 			children = (
+				CC41E9791A41E410003E0569 /* iOS Simulator Screen Shot Dec 15, 2014, 1.02.06 AM.png */,
+				CC41E97A1A41E410003E0569 /* stripes 1024x1024.png */,
 				CC0A5A1719034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png */,
 				CC0A5A14190346EB001745F9 /* splitagram icon 1024.png */,
 				CC17B64B1942A92800B33CCF /* anonogram 1024x1024.png */,
@@ -320,9 +346,31 @@
 			name = "ad images";
 			sourceTree = "<group>";
 		};
+		CC2489BD1A416E2C00302B8C /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				CC2489BE1A416E2C00302B8C /* NSData+MKBase64.h */,
+				CC2489BF1A416E2C00302B8C /* NSData+MKBase64.m */,
+				CC2489C01A416E2C00302B8C /* SFHFKeychainUtils.h */,
+				CC2489C11A416E2C00302B8C /* SFHFKeychainUtils.m */,
+			);
+			name = Externals;
+			path = "MKStoreKit-master-4/Externals";
+			sourceTree = SOURCE_ROOT;
+		};
 		CC45AB771A36C975004753C5 /* MKStoreKit-master */ = {
 			isa = PBXGroup;
 			children = (
+				CC2489BD1A416E2C00302B8C /* Externals */,
+				CC2489C21A416E2C00302B8C /* MKSKConfig.h */,
+				CC2489C31A416E2C00302B8C /* MKSKConfig.m */,
+				CC2489C41A416E2C00302B8C /* MKSKProduct.h */,
+				CC2489C51A416E2C00302B8C /* MKSKProduct.m */,
+				CC2489C61A416E2C00302B8C /* MKSKSubscriptionProduct.h */,
+				CC2489C71A416E2C00302B8C /* MKSKSubscriptionProduct.m */,
+				CC2489C81A416E2C00302B8C /* MKStoreKitConfigs.plist */,
+				CC2489C91A416E2C00302B8C /* MKStoreManager.h */,
+				CC2489CA1A416E2C00302B8C /* MKStoreManager.m */,
 				CC45AB781A36C975004753C5 /* MKStoreKit.h */,
 				CC45AB791A36C975004753C5 /* MKStoreKit.m */,
 				CC45AB7A1A36C975004753C5 /* MKStoreKitConfigs.h */,
@@ -658,6 +706,7 @@
 				CC6C66EC190093DC00F7D53F /* facebook-70251b04a4be865178ab592bc9586c83.png in Resources */,
 				CC6C66AB190093DC00F7D53F /* Frame06a.png in Resources */,
 				CC6C66C4190093DC00F7D53F /* secondFrame06.png in Resources */,
+				CC2489D01A416E2C00302B8C /* MKStoreKitConfigs.plist in Resources */,
 				CC6C66C1190093DC00F7D53F /* secondFrame03.png in Resources */,
 				CCD28D7518D9F027001127EC /* Images.xcassets in Resources */,
 				CC6C6680190093DC00F7D53F /* 2strip.png in Resources */,
@@ -671,6 +720,7 @@
 				CC6C66A9190093DC00F7D53F /* Frame05.png in Resources */,
 				CCD28D6718D9F027001127EC /* InfoPlist.strings in Resources */,
 				CC6C66A5190093DC00F7D53F /* Frame01.png in Resources */,
+				CC41E97C1A41E410003E0569 /* stripes 1024x1024.png in Resources */,
 				CC6C666F190093DC00F7D53F /* filter11.png in Resources */,
 				CC6C67D51900CABE00F7D53F /* MainStoryboard.storyboard in Resources */,
 				CC0A5A16190346EB001745F9 /* splitagram icon 1024.png in Resources */,
@@ -698,6 +748,7 @@
 				CC0A5A1819034793001745F9 /* iOS Simulator Screen shot Apr 16, 2014, 3.15.12 PM.png in Resources */,
 				CC6C66A7190093DC00F7D53F /* Frame03.png in Resources */,
 				CC6C6682190093DC00F7D53F /* aqua.acv in Resources */,
+				CC41E97B1A41E410003E0569 /* iOS Simulator Screen Shot Dec 15, 2014, 1.02.06 AM.png in Resources */,
 				CC6C66C6190093DC00F7D53F /* secondFrame08.png in Resources */,
 				CC6C66C3190093DC00F7D53F /* secondFrame05.png in Resources */,
 				CC6C66C2190093DC00F7D53F /* secondFrame04.png in Resources */,
@@ -726,12 +777,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC6C652C190093A800F7D53F /* PhotoCell.m in Sources */,
+				CC2489D11A416E2C00302B8C /* MKStoreManager.m in Sources */,
 				CC0A5A1E19034992001745F9 /* adViewController.m in Sources */,
 				CCD28D7318D9F027001127EC /* ViewController.m in Sources */,
+				CC2489CD1A416E2C00302B8C /* MKSKConfig.m in Sources */,
+				CC2489CF1A416E2C00302B8C /* MKSKSubscriptionProduct.m in Sources */,
 				CCD28D6D18D9F027001127EC /* AppDelegate.m in Sources */,
 				CC6C6527190093A800F7D53F /* designViewController.m in Sources */,
+				CC2489CB1A416E2C00302B8C /* NSData+MKBase64.m in Sources */,
 				CC6C652B190093A800F7D53F /* pageViewController.m in Sources */,
 				CC6C652D190093A800F7D53F /* SettingVC.m in Sources */,
+				CC2489CE1A416E2C00302B8C /* MKSKProduct.m in Sources */,
+				CC2489CC1A416E2C00302B8C /* SFHFKeychainUtils.m in Sources */,
 				CC45AB7C1A36C975004753C5 /* MKStoreKit.m in Sources */,
 				CC6C652A190093A800F7D53F /* pageViewContentViewController.m in Sources */,
 				CC6C6528190093A800F7D53F /* doneViewController.m in Sources */,

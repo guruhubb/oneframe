@@ -30,55 +30,55 @@
 
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
-    [[MKStoreKit sharedKit] startProductRequest];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductsAvailableNotification
-                                                      object:nil
-                                                       queue:[[NSOperationQueue alloc] init]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      
-                                                      NSLog(@"Products available: %@", [[MKStoreKit sharedKit] availableProducts]);
-                                                  }];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchasedNotification
-                                                      object:nil
-                                                       queue:[[NSOperationQueue alloc] init]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      
-                                                      NSLog(@"Purchased/Subscribed to product with id: %@", [note object]);
-                                                  }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitRestoredPurchasesNotification
-                                                      object:nil
-                                                       queue:[[NSOperationQueue alloc] init]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      
-                                                      NSLog(@"Restored Purchases");
-                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Restore Successful" message:nil
-                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                                                      [alert show];
-                                                      [self updateAppViewAndDefaults];
-                                                      [defaults setBool:YES forKey:@"restorePurchases"];
-                                                      
-                                                  }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitRestoringPurchasesFailedNotification
-                                                      object:nil
-                                                       queue:[[NSOperationQueue alloc] init]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      
-                                                      NSLog(@"Failed restoring purchases with error: %@", [note object]);
-                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Restore Failed" message:nil
-                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                                                      [alert show];
-                                                      [self updateAppViewAndDefaults];
-                                                      [defaults setBool:NO forKey:@"restorePurchases"];
-                                                      
-                                                  }];
+//    [[MKStoreKit sharedKit] startProductRequest];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductsAvailableNotification
+//                                                      object:nil
+//                                                       queue:[[NSOperationQueue alloc] init]
+//                                                  usingBlock:^(NSNotification *note) {
+//                                                      
+//                                                      NSLog(@"Products available: %@", [[MKStoreKit sharedKit] availableProducts]);
+//                                                  }];
+//    
+//    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchasedNotification
+//                                                      object:nil
+//                                                       queue:[[NSOperationQueue alloc] init]
+//                                                  usingBlock:^(NSNotification *note) {
+//                                                      
+//                                                      NSLog(@"Purchased/Subscribed to product with id: %@", [note object]);
+//                                                  }];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitRestoredPurchasesNotification
+//                                                      object:nil
+//                                                       queue:[[NSOperationQueue alloc] init]
+//                                                  usingBlock:^(NSNotification *note) {
+//                                                      
+//                                                      NSLog(@"Restored Purchases");
+//                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Restore Successful" message:nil
+//                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//                                                      [alert show];
+//                                                      [self updateAppViewAndDefaults];
+//                                                      [defaults setBool:YES forKey:@"restorePurchases"];
+//                                                      
+//                                                  }];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitRestoringPurchasesFailedNotification
+//                                                      object:nil
+//                                                       queue:[[NSOperationQueue alloc] init]
+//                                                  usingBlock:^(NSNotification *note) {
+//                                                      
+//                                                      NSLog(@"Failed restoring purchases with error: %@", [note object]);
+//                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Restore Failed" message:nil
+//                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//                                                      [alert show];
+//                                                      [self updateAppViewAndDefaults];
+//                                                      [defaults setBool:NO forKey:@"restorePurchases"];
+//                                                      
+//                                                  }];
 
 
-//    [MKStoreManager sharedManager];
+    [MKStoreManager sharedManager];
     
     //create album
     NSString *albumName = @"One Frame";
@@ -108,23 +108,23 @@
     return YES;
 }
 
-- (void) updateAppViewAndDefaults {
-    
-//    if ([[MKStoreKit sharedKit] isProductPurchased:kFeature0])
-//        [defaults setBool:YES forKey:kFeature0];
-//    else
-//        [defaults setBool:NO forKey:kFeature0];
+//- (void) updateAppViewAndDefaults {
 //    
-//    if([[MKStoreKit sharedKit] isProductPurchased:kFeature1])
-//        [defaults setBool:YES forKey:kFeature1];
+////    if ([[MKStoreKit sharedKit] isProductPurchased:kFeature0])
+////        [defaults setBool:YES forKey:kFeature0];
+////    else
+////        [defaults setBool:NO forKey:kFeature0];
+////    
+////    if([[MKStoreKit sharedKit] isProductPurchased:kFeature1])
+////        [defaults setBool:YES forKey:kFeature1];
+////    else
+////        [defaults setBool:NO forKey:kFeature1];
+//    
+//    if([[MKStoreKit sharedKit] isProductPurchased:kFeature2])
+//        [defaults setBool:YES forKey:kFeature2];
 //    else
-//        [defaults setBool:NO forKey:kFeature1];
-    
-    if([[MKStoreKit sharedKit] isProductPurchased:kFeature2])
-        [defaults setBool:YES forKey:kFeature2];
-    else
-        [defaults setBool:NO forKey:kFeature2];
-}
+//        [defaults setBool:NO forKey:kFeature2];
+//}
 
 #pragma mark - assets
 + (ALAssetsLibrary *)defaultAssetsLibrary

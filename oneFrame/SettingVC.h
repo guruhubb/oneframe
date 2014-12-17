@@ -10,7 +10,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "MKStoreKit.h"
 #import <StoreKit/StoreKit.h>
-
+#import "MKStoreManager.h"
 
 @class HackbookAppDelegate;
 @interface SettingVC : UITableViewController<UITableViewDataSource,UITableViewDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate,UIAlertViewDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate,SKStoreProductViewControllerDelegate>{
