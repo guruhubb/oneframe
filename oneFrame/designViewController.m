@@ -105,14 +105,6 @@
 
 @implementation designViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad
 {
@@ -166,55 +158,20 @@
     if (btn.tag==0 || btn.tag > 25+35) btn.tag = 1;
     [self frameClicked:btn];
     [self frameClicked:btn];
-//    if (![defaults boolForKey:kFeature0])
-//        btn.tag = 20;
 
-//    if (btn.tag >25  && [defaults boolForKey:kFeature0]) {
-//        NSLog(@" btn.tag is %d; nstyle = %d, nsubstyle = %d",btn.tag, nStyle,nSubStyle);
-//
-//        [self secondFrameClicked:btn];
-//    }
-//    else {
-//        [self frameClicked:btn];
-//    }
-//    [self centerImage];
     firstTimeDesign = YES;
 
-//    [defaults setBool:YES forKey:kFeature0];  //test
-//    [defaults setBool:YES forKey:kFeature1];  //test
-
-//    int number = [defaults integerForKey:@"number"];
-//    NSLog(@"number is %d",number);
-//    if (number > 9 || number == 0) {
-//        number = 2;
-//    }
-//    [defaults setInteger:number forKey:@"number"];
- 
-//    btn.tag = number;
-//    btn.tag=9;//black and white
-//    tapBlockNumber=0;
-//    if (![defaults boolForKey:@"filter"])
-//        [self effectsClicked:btn];
 }
 
 - (void) randomFilterPick {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    int number = [defaults integerForKey:@"number"];
-//    NSLog(@"number is %d",number);
 
-//    btn.tag = number;
-//    btn.tag = 9;  //test
-//    tapBlockNumber=1;
-//    [self effectsClicked:btn];
-
-//    btn.tag = number;
     btn.tag = 9;  //test
     tapBlockNumber=3;
     [self effectsClicked:btn];
 
     tapBlockNumber=1;
-//    number ++;
-//    [defaults setInteger:number forKey:@"number"];
+
 
 }
 - (void) resetGestureParameters {
@@ -229,11 +186,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated   {
     [super viewDidAppear:NO];
-//    if (firstTimeDesign)
-//    {
-//        if (![defaults boolForKey:@"filter"])
-//            [self randomFilterPick];
-//    }
+
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
@@ -264,13 +217,6 @@
     [popupQuery showInView:self.view];
 }
 
-//-(void)resizeAction
-//{
-//    UIActionSheet *popupQuery;
-//    popupQuery = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"resize to create frames",@"buy for $0.99",nil];
-//    popupQuery.tag=2;
-//    [popupQuery showInView:self.view];
-//}
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
         if (buttonIndex==1){
@@ -280,20 +226,6 @@
 
 - (void) updateAppViewAndDefaults {
     
-//        if ([MKStoreManager isFeaturePurchased:kFeature0])
-//            [defaults setBool:YES forKey:kFeature0];
-//        else
-//            [defaults setBool:NO forKey:kFeature0];
-//        
-//        if([MKStoreManager isFeaturePurchased:kFeature1])
-//            [defaults setBool:YES forKey:kFeature1];
-//        else
-//            [defaults setBool:NO forKey:kFeature1];
-    
-//    if([MKStoreManager isFeaturePurchased:kFeature3])
-//        [defaults setBool:YES forKey:kFeature3];
-//    else
-//        [defaults setBool:NO forKey:kFeature3];
 }
 - (void)inAppBuyAction:(int)tag {
     [Flurry logEvent:@"InApp Watermark"];
@@ -319,66 +251,8 @@
          {
              NSLog(@"User Cancelled Transaction");
          }];
-//    [[MKStoreKit sharedKit] initiatePaymentRequestForProductWithIdentifier:kFeature2];
-//    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchasedNotification
-//                                                      object:nil
-//                                                       queue:[[NSOperationQueue alloc] init]
-//                                                  usingBlock:^(NSNotification *note) {
-//                                                      
-//                                                      NSLog(@"Purchased/Subscribed to product with id: %@", [note object]);
-//                                                      
-//                                                      NSLog(@"%@", [[MKStoreKit sharedKit] valueForKey:@"purchaseRecord"]);
-//                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
-//                                                                                                     delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//                                                      [defaults setBool:YES  forKey:kFeature2];
-//                                                      [alert show];
-//                                                      [self updateAppViewAndDefaults];
-//                                                  }];
-    
-    
-    
+ 
 }
-//- (void)inAppBuyAction:(int)tag {
-//    NSString *string;
-//
-////    switch (tag) {
-////        case 0:
-////            string = kFeature0;
-////            [Flurry logEvent:@"InApp Frames"];
-////            break;
-////        case 1:
-////            string = kFeature1;
-////            [Flurry logEvent:@"InApp Filters"];
-////            break;
-//////        case 2:
-//////            string = kFeature3;
-//////            [Flurry logEvent:@"InApp Resize"];
-//////            break;
-////        default:
-////            break;
-////    }
-//    
-//    [[MKStoreManager sharedManager] buyFeature:string
-//                                    onComplete:^(NSString* purchasedFeature,
-//                                                 NSData* purchasedReceipt,
-//                                                 NSArray* availableDownloads)
-//     {
-//             NSLog(@"Purchased: %@, available downloads is %@ string is %@", purchasedFeature, availableDownloads, string);
-//             
-//   
-//             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Successful" message:nil
-//                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//             [defaults setBool:YES  forKey:string];
-//             [alert show];
-//             [self updateAppViewAndDefaults];
-//
-//     }
-//                                   onCancelled:^
-//     {
-//         NSLog(@"User Cancelled Transaction");
-//     }];
-//    
-//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -474,32 +348,6 @@
 
         [self.frameSelectionBar addSubview:btn];
     }
-//    for (int ind = 25; ind <= 26; ind++) {
-//        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        if (!IS_TALL_SCREEN)
-//            btn.frame = CGRectMake((ind - 25 ) * 55+5+ 20*55, 5, 50, 50);
-//        else
-//            btn.frame = CGRectMake((ind - 25 ) * 70+5+ 20*70, 5, 65, 65);
-//        btn.tag = ind+25;
-//        btn.layer.borderWidth=kBorderWidth;
-//        btn.layer.borderColor=[[UIColor clearColor] CGColor];
-//        [btn addTarget:self action:@selector(secondFrameClicked:) forControlEvents:UIControlEventTouchUpInside];
-//        NSLog(@"secondFrame%02d.png",ind);
-//        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"secondFrame%02d.png",ind]] forState:UIControlStateNormal];
-//        [btn.imageView setContentMode:UIViewContentModeScaleToFill];
-//        btn.alpha = 0.4;
-//        [self.frameSelectionBar addSubview:btn];
-//        
-//        if (![defaults boolForKey:kFeature0]){
-//            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
-//            imageView.alpha = 0.8;
-//            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-//            imageView.layer.shadowOffset = CGSizeMake(0, 1);
-//            imageView.layer.shadowOpacity = 1;
-//            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
-//            [btn addSubview:imageView];
-//        }
-//    }
 }
 
 - (void) fillSecondFrameSelectionSlider {
@@ -519,43 +367,7 @@
         btn.alpha = 0.4;
         [self.frameSelectionBar addSubview:btn];
         
-//        if (![defaults boolForKey:kFeature0]){
-//            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
-//            imageView.alpha = 0.8;
-//            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-//            imageView.layer.shadowOffset = CGSizeMake(0, 1);
-//            imageView.layer.shadowOpacity = 1;
-//            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
-//            [btn addSubview:imageView];
-//        }
     }
-
-//    for (int ind = 9; ind <= 24; ind++) {
-//        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        if (!IS_TALL_SCREEN)
-//            btn.frame = CGRectMake((ind - 9 ) * 55+5+6*55, 60, 50, 50);
-//        else
-//            btn.frame = CGRectMake((ind - 9 ) * 70+5+6*70, 75, 65, 65);
-//        btn.tag = ind+25;
-//        btn.layer.borderWidth=kBorderWidth;
-//        btn.layer.borderColor=[[UIColor clearColor] CGColor];
-//        [btn addTarget:self action:@selector(secondFrameClicked:) forControlEvents:UIControlEventTouchUpInside];
-//        NSLog(@"secondFrame%02d.png",ind);
-//        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"secondFrame%02d.png",ind]] forState:UIControlStateNormal];
-//        [btn.imageView setContentMode:UIViewContentModeScaleToFill];
-//        btn.alpha = 0.4;
-//        [self.frameSelectionBar addSubview:btn];
-//        
-//        if (![defaults boolForKey:kFeature0]){
-//            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
-//            imageView.alpha = 0.8;
-//            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-//            imageView.layer.shadowOffset = CGSizeMake(0, 1);
-//            imageView.layer.shadowOpacity = 1;
-//            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
-//            [btn addSubview:imageView];
-//        }
-//    }
 }
 
 - (void)frameClicked:(UIButton *)clickedBtn
@@ -622,70 +434,7 @@
             [self resetAdjustedValues];
             [self selectFrame:1 SUB:12];
             break;
-            
-//        case 13:
-//            [self resetAdjustedValues];
-//            [self selectFrame:1 SUB:12];
-//            break;
-//        case 14:
-//            [self resetAdjustedValues];
-//            [self selectFrame:3 SUB:2];
-//            break;
-//        case  15:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:3 SUB:3];
-//            break;
-//        case 16:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:3 SUB:4];
-//            break;
-//        case 17:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:3 SUB:5];
-//            break;
-//        case 18:
-//            
-//            [self selectFrame:3 SUB:6];
-//            break;
-//        case 19:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:4 SUB:1];
-//            break;
-//        case 20:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:4 SUB:2];
-//            break;
-//        case 21:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:4 SUB:3];
-//            break;
-//        case 22:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:4 SUB:4];
-//            break;
-//        case 23:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:4 SUB:5];
-//            break;
-//        case 24:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:4 SUB:6];
-//            break;
-//        case 25:
-//            
-//            [self resetAdjustedValues];
-//            [self selectFrame:4 SUB:7];
-//            break;
-            
+           
         default:
             [self resetAdjustedValues];
             [self selectFrame:1 SUB:1];
@@ -771,149 +520,6 @@
                 [self resetAdjustedValues];
                 [self selectFrame:1 SUB:24];
                 break;
-//            case 11:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:2 SUB:13];
-//                break;
-//            case 15:
-//                
-//                [self selectFrame:2 SUB:14];
-//                break;
-//            case 16:
-//                
-//                [self selectFrame:2 SUB:15];
-//                break;
-                
-                
-//            case 17:
-//                
-//                [self selectFrame:2 SUB:16];
-//                break;
-//            case 13:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:3 SUB:7];
-//                break;
-//            case 14:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:3 SUB:8];
-//                break;
-//            case 15:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:3 SUB:9];
-//                break;
-//            case 16:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:3 SUB:10];
-//                break;
-//            case 17:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:3 SUB:11];
-//                break;
-//            case 18:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:3 SUB:12];
-//                break;
-//            case 18:
-//                
-//                [self selectFrame:3 SUB:13];
-//                break;
-                
-//            case 19:
-//                [self resetAdjustedValues];
-//                [self selectFrame:3 SUB:14];
-//                break;
-//            case 26:
-//                
-//                [self selectFrame:3 SUB:15];
-//                break;
-//            case 27:
-//                [self selectFrame:3 SUB:16];
-//                break;
-                
-                //        case 28:
-                //
-                //            [self selectFrame:4 SUB:8];
-                //            break;
-                //        case 29:
-                //
-                //            [self selectFrame:4 SUB:9];
-                //            break;
-//            case 20:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:4 SUB:10];
-//                break;
-//            case 21:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:4 SUB:11];
-//                break;
-//            case 22:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:4 SUB:12];
-//                break;
-//            case 23:
-//                
-//                [self resetAdjustedValues];
-//                [self selectFrame:4 SUB:13];
-//                break;
-//                
-//            case 24:
-//                [self resetAdjustedValues];
-//                [self selectFrame:4 SUB:14];
-//                break;
-                //        case 33:
-                //
-                //            [self selectFrame:4 SUB:15];
-                //            break;
-//            case 25:
-//                [self resetAdjustedValues];
-//                [self selectFrame:4 SUB:16];
-//                
-//                break;
-//            case 26:
-//                [self resetAdjustedValues];
-//                [self selectFrame:4 SUB:18];
-//                
-//                break;
-//            case 27:
-//                [self resetAdjustedValues];
-//                [self selectFrame:2 SUB:17];
-//                
-//                break;
-//            case 28:
-//                [self resetAdjustedValues];
-//                [self selectFrame:2 SUB:18];
-//                
-//                break;
-//            case 29:
-//                [self resetAdjustedValues];
-//                [self selectFrame:2 SUB:19];
-//                
-//                break;
-//            case 30:
-//                [self resetAdjustedValues];
-//                [self selectFrame:2 SUB:20];
-//                
-//                break;
-//            case 31:
-//                [self resetAdjustedValues];
-//                [self selectFrame:2 SUB:21];
-//                
-//                break;
-//            case 32:
-//                [self resetAdjustedValues];
-//                [self selectFrame:2 SUB:22];
-//                
-//                break;
 
                 
             default:
@@ -938,10 +544,6 @@
     labelEffectsArray = [[NSMutableArray alloc]initWithObjects: @"original", @"delight", @"sunny",@"night", @"beach",@"b&w-red",nil];
     labelSecondEffectsArray = [[NSMutableArray alloc]initWithObjects: @"sepia",@"water", @"b&w",@"morning", @"sky",@"2layer",nil];
 
-//    if (!IS_TALL_SCREEN)
-//        self.filterSelectionBar.contentSize = CGSizeMake(55 * 11+10, self.frameSelectionBar.frame.size.height);
-//    else
-//        self.filterSelectionBar.contentSize = CGSizeMake(70 * 11+10, 151);
     
     
     for (int ind = 1; ind <= 6; ind++) {
@@ -949,10 +551,6 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake((ind - 1 ) *52+6, 7, 46, 46);
 
-//        if (!IS_TALL_SCREEN)
-//            btn.frame = CGRectMake((ind - 1 ) * 55+5, 5, 50, 50);
-//        else
-//            btn.frame = CGRectMake((ind - 1 ) * 70+5, 5, 65, 65);
 
         btn.tag = ind;
         [btn setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 13.0, 0.0)];
@@ -963,10 +561,6 @@
         [btn addTarget:self action:@selector(effectsClicked:) forControlEvents:UIControlEventTouchUpInside];
         CGRect labelEffects;
         labelEffects = CGRectMake((ind - 1 ) * 52+6+kBorderWidth, 43-kBorderWidth, 46-2*kBorderWidth, 13);
-//        if (!IS_TALL_SCREEN)
-//            labelEffects = CGRectMake((ind - 1 ) * 55+5+kBorderWidth, 42-kBorderWidth, 50-2*kBorderWidth, 13);
-//        else
-//            labelEffects = CGRectMake((ind - 1 ) * 70+5+kBorderWidth, 57-kBorderWidth, 65-2*kBorderWidth, 13);
 
         UILabel *label = [[UILabel alloc] initWithFrame:labelEffects];
         label.backgroundColor = [UIColor lightGrayColor];
@@ -1031,15 +625,7 @@
 
         [self.filterSelectionBar addSubview:btn];
         [self.filterSelectionBar addSubview:label];
-//        if (![defaults boolForKey:kFeature1]){
-//            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lockImage.png"]];
-//            imageView.alpha = 0.8;
-//            imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-//            imageView.layer.shadowOffset = CGSizeMake(0, 1);
-//            imageView.layer.shadowOpacity = 1;
-//            imageView.frame=CGRectMake(btn.frame.size.width-15, 2, 15, 15);
-//            [btn addSubview:imageView];
-//        }
+
     }
 }
 - (void) saveImage : (UIImage *)image {
@@ -1933,73 +1519,6 @@
         imgView.transform = CGAffineTransformScale(imgView.transform, zoomFactor, zoomFactor);
 }
 
-//- (void) fitImageToScroll:(MyImageView*)imgView SCROLL:(UIScrollView*)scrView  scrollViewNumber: (NSInteger)tagNumber angle: (CGFloat) angle
-//{
-//    float rateScr, rateImg, rateWidth, rateHeight;
-//    if (scrView.frame.size.width > 0 && imgView.frame.size.width >0){
-//        rateScr = scrView.frame.size.height / scrView.frame.size.width;
-//        rateImg = imgView.frame.size.height / imgView.frame.size.width;
-//    }
-//    if (imgView.frame.size.width > 0 && imgView.frame.size.height > 0){
-//        rateWidth = scrView.frame.size.width / imgView.frame.size.width;
-//        rateHeight = scrView.frame.size.height / imgView.frame.size.height;
-//    }
-//    NSLog(@"imgView is width=%f, height=%f, rateWidth is %f, rateHeight is %f",imgView.frame.size.width, imgView.frame.size.height,rateWidth,rateHeight);
-//    CGFloat rateFit = rateScr < rateImg ? rateWidth : rateHeight;
-//    NSLog (@"rateFit is %f",rateFit);
-//    CGSize szImage = CGSizeMake(imgView.frame.size.width*rateFit, imgView.frame.size.height*rateFit);
-//    [imgView setFrame:CGRectMake(0.0, 0.0, szImage.width, szImage.height)];
-//
-//    [scrView setContentSize:CGSizeMake(imgView.frame.size.width*1.2, imgView.frame.size.height*1.2)];
-//    CGPoint pt;
-//    pt.x = (imgView.frame.size.width - scrView.frame.size.width)/2;
-//    pt.y = (imgView.frame.size.height - scrView.frame.size.height)/2;
-//    NSLog(@"pt is x=%f and y=%f",pt.x, pt.y);
-//    [scrView setContentOffset:pt animated:YES];
-//    
-//    NSString *tagPtX = [NSString stringWithFormat:@"PtX%d",tagNumber];
-//    NSString *tagPtY = [NSString stringWithFormat:@"PtY%d",tagNumber];
-//    NSString *tagScale = [NSString stringWithFormat:@"Scale%d",tagNumber];
-//    [defaults setFloat:pt.x  forKey:tagPtX];
-//    [defaults setFloat:pt.y forKey:tagPtY];
-//    [defaults setFloat:rateFit forKey:tagScale];
-//    switch (tagNumber) {
-//        case 0:{
-//            zoom1 = [defaults floatForKey:@"Scale0"];
-//            [defaults setFloat:0.0f forKey:@"PanX0"];
-//            [defaults setFloat:0.0f forKey:@"PanY0"];
-//            [defaults setFloat:1.0f forKey:@"Zoom0"];
-//        }
-//            break;
-//        case 1:{
-//            zoom2 = [defaults floatForKey:@"Scale1"];
-//            [defaults setFloat:0.0f forKey:@"PanX1"];
-//            [defaults setFloat:0.0f forKey:@"PanY1"];
-//            [defaults setFloat:1.0f forKey:@"Zoom1"];
-//        }
-//            break;
-//        case 2:{
-//            zoom3 = [defaults floatForKey:@"Scale2"];
-//            [defaults setFloat:0.0f forKey:@"PanX2"];
-//            [defaults setFloat:0.0f forKey:@"PanY2"];
-//            [defaults setFloat:1.0f forKey:@"Zoom2"];
-//        }
-//            break;
-//        case 3:{
-//            zoom4 = [defaults floatForKey:@"Scale3"];
-//            [defaults setFloat:0.0f forKey:@"PanX3"];
-//            [defaults setFloat:0.0f forKey:@"PanY3"];
-//            [defaults setFloat:1.0f forKey:@"Zoom3"];
-//        }
-//            break;
-//            
-//    }
-//    //    [self resetPostionZoomParameters];
-//    //    [self resetGestureParameters];
-//    NSLog(@"angle is %f",angle);
-//    imgView.transform = CGAffineTransformRotate(imgView.transform, angle);
-//    
-//}
 - (void) fillRotateMenu {
     CGRect frame = CGRectMake(5.0, 5.0, 310.0, 47.0);
     sliderRotate = [[UISlider alloc] initWithFrame:frame];
